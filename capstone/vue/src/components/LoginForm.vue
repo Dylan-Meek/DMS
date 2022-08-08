@@ -20,7 +20,7 @@ form {
   margin-left: 35%;
   margin-right: 35%;
   margin-top: 5%;
-  background-color: #162228;
+  background-color: rgba(22, 34, 40, 0.4);
   color: #f9f7f7;
   border-radius: 40px;
 }
@@ -69,5 +69,11 @@ body {
   width: 100vw;
   height: 100vh;
   background-position: center;
+}
+
+[role="alert"] {
+  margin-left: auto;
+  margin-right: auto;
+  padding-bottom: 10px;
 }
 </style>
