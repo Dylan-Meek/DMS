@@ -19,7 +19,7 @@ CREATE TABLE car (
 	year int NOT NULL,
 	engine	varchar(50) NOT NULL,
 	price decimal (13,2) NOT NULL,
-	photo varchar(100) NOT NULL,
+	photo varchar(1000) NOT NULL,
 	CONSTRAINT PK_car PRIMARY KEY (vin)
 );
 
