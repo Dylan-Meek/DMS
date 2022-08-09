@@ -18,7 +18,7 @@ private final JdbcTemplate jdbcTemplate;
     @Override
     public List<Car> getAllCarsByUserId(int userId) {
         List<Car> cars = new ArrayList<>();
-        String sql = "SELECT c.vin, make, model, year, mileage, engine, input_id, price, photo, notes FROM car as c JOIN garage as g on g.vin = c.vin WHERE g.user_id = ?;";
+        String sql = "SELECT c.vin, make, model, year, mileage, engine, input_id, price, photo, notes, is_for_sale FROM car as c JOIN garage as g on g.vin = c.vin WHERE g.user_id = ?;";
         SqlRowSet RowSet = jdbcTemplate.queryForRowSet(sql, userId);
         while(RowSet.next()){
             cars.add(mapRowToCar(RowSet));
