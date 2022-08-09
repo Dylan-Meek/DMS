@@ -2,20 +2,22 @@
   <div>
     <h1>Inventory</h1>
     <div class="inventory">
-      <div class="car" v-for="car in cars" v-bind:key="car.vin">
-        {{ car.year }}
-        {{ car.make }}
-        {{ car.model }}
-        <img :src="`${car.photo}`" />
-      </div>
+      <car-card v-for="car in cars" 
+      v-bind:key="car.vin"
+      :car="car">
+            </car-card>
     </div>
   </div>
 </template>
 
 <script>
 import inventoryService from "@/services/InventoryService";
+import carCard from "@/components/CarCard.vue";
 
 export default {
+  components: {
+    carCard
+  },
   data() {
     return {
       cars: [],

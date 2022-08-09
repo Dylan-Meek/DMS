@@ -9,6 +9,9 @@ public class Car {
     private String engine;
     private double price;
     private String photo;
+    private String notes;
+    private int inputId;
+    private int mileage;
 
     public String getVin() {
         return vin;
@@ -64,5 +67,29 @@ public class Car {
 
     public void setPhoto(String photo) {
         this.photo = photo;
+    }
+
+    public String getNotes() {
+        return notes;
+    }
+
+    public void setNotes(String notes) {
+        this.notes = notes;
+    }
+
+    public int getInputId() {
+        return inputId;
+    }
+
+    public void setInputId(int inputId) {
+        this.inputId = inputId;
+    }
+
+    public int getMileage() {
+        return mileage;
+    }
+
+    public void setMileage(int mileage) {
+        this.mileage = mileage;
     }
 }

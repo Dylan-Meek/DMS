@@ -47,7 +47,8 @@ CREATE TABLE garage (
 	vin varchar(50) NOT NULL,
 	user_id int NOT NULL,
 	CONSTRAINT PK_garage PRIMARY KEY (garage_id),
-	CONSTRAINT FK_user_id FOREIGN KEY (user_id) REFERENCES users (user_id)
+	CONSTRAINT FK_user_id FOREIGN KEY (user_id) REFERENCES users (user_id),
+	CONSTRAINT FK_vin FOREIGN KEY (vin) REFERENCES car (vin)
 );
 
 CREATE SEQUENCE seq_lot_id
