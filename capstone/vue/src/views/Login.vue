@@ -1,6 +1,5 @@
 <template>
   <div id="login" class="text-center">
-    <login-form />
     <form class="form-signin" @submit.prevent="login">
       <h1 class="h3 mb-3 font-weight-normal">Please Sign In</h1>
       <div class="alert alert-danger" role="alert" v-if="invalidCredentials">
@@ -43,10 +42,9 @@
 
 <script>
 import authService from "../services/AuthService";
-import LoginForm from "@/components/LoginForm";
 
 export default {
-  components: { LoginForm },
+  components: {},
   name: "login",
 
   data() {
@@ -80,4 +78,74 @@ export default {
   },
 };
 </script>
+
+<style>
+form {
+  padding-top: 2%;
+  padding-bottom: 1%;
+  font-size: 16px;
+  font-family: "Montserrat", sans-serif;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin-left: 35%;
+  margin-right: 35%;
+  margin-top: 5%;
+  background-color: rgba(22, 34, 40, 0.4);
+  color: #f9f7f7;
+  border-radius: 40px;
+}
+
+form > input {
+  margin-bottom: 20px;
+  margin-left: 20%;
+  margin-right: 20%;
+}
+
+label {
+  padding-bottom: 10px;
+  margin-left: 20%;
+  margin-right: 20%;
+  color: #f9f7f7;
+}
+
+h1 {
+  margin-left: auto;
+  margin-right: auto;
+  color: #f9f7f7;
+}
+
+.link {
+  padding: 10px;
+  margin-left: auto;
+  margin-right: auto;
+  color: #f9f7f7;
+  font-size: 0.7rem;
+}
+
+button {
+  margin-left: auto;
+  margin-right: auto;
+  color: #162228;
+  background-color: #ffde32;
+  border-radius: 5px;
+  width: 25%;
+  align-content: center;
+  font-size: 0.9rem;
+}
+
+body {
+  background-image: url("/62f153a316532.jpg");
+  background-size: cover;
+  width: 100vw;
+  height: 100vh;
+  background-position: center;
+}
+
+[role="alert"] {
+  margin-left: auto;
+  margin-right: auto;
+  padding-bottom: 10px;
+}
+</style>
 
