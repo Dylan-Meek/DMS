@@ -6,6 +6,8 @@ import Logout from '../views/Logout.vue'
 import Register from '../views/Register.vue'
 import Inventory from "@/views/Inventory.vue"
 import store from '../store/index'
+import CustomerGarage from '../views/CustomerGarage.vue'
+
 
 Vue.use(Router)
 
@@ -61,6 +63,15 @@ const router = new Router({
       meta: {
         requiresAuth: false
       }
+    },
+    {
+      path: "/garage",
+      name: "customerGarage",
+      component: CustomerGarage,
+      meta: {
+        requiresAuth: false   // This was originally true.
+      }
+
     }
   ]
 })
