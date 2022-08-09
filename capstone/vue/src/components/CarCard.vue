@@ -1,9 +1,14 @@
 <template>
   <div class="card">
-    <h2 class="car-info">{{ car.year + " " + car.make + " " + car.model }}</h2>
     <img v-bind:src="`${car.photo}`" />
-    <h3 class="car-mileage">{{ car.mileage }}</h3>
-    <h3 class="car-status">{{ determineStatus() }}</h3>
+    <div class="flex-car">
+      <ul>
+        <li>{{ car.year + " " + car.make + " " + car.model }}</li>
+        <li>{{ car.mileage + " Miles | " + car.engine + " Engine" }}</li>
+        <li>{{ "$" + car.price + " | " + determineStatus() }}</li>
+        <li>{{ car.notes }}</li>
+      </ul>
+    </div>
   </div>
 </template>
 
@@ -28,22 +33,31 @@ export default {
 
 <style>
 .card {
-  border: 2px solid black;
+  display: flex;
+  border: 4px solid black;
   border-radius: 10px;
-  width: 250px;
+  width: 900px;
   height: 550px;
   margin: 20px;
+  background-color: rgba(255, 255, 255, 0.7);
+  justify-content: center;
+  align-items: center;
 }
 
-.card.read {
-  background-color: lightgray;
+img {
+  width: 45%;
+  height: 90%;
 }
 
-.card .book-title {
-  font-size: 1.5rem;
+.flex-car {
+  display: flex;
 }
 
-.card .book-author {
-  font-size: 1rem;
+ul {
+  font-size: 30px;
+}
+
+ul > li {
+  padding-bottom: 50px;
 }
 </style>
