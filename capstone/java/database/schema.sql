@@ -37,18 +37,19 @@ CREATE TABLE car (
 	CONSTRAINT FK_input_id FOREIGN KEY (input_id) REFERENCES inputs (input_id)
 );
 
-CREATE SEQUENCE seq_garage_id
-	INCREMENT by 1
-	START WITH 2000
-	NO MAXVALUE;
+-- CREATE SEQUENCE seq_garage_id
+-- 	INCREMENT by 1
+-- 	START WITH 2000
+-- 	NO MAXVALUE;
 	
 CREATE TABLE garage (
-	garage_id int NOT NULL DEFAULT nextval('seq_garage_id'), 
+-- 	garage_id int NOT NULL DEFAULT nextval('seq_garage_id'), 
 	vin varchar(50) NOT NULL,
 	user_id int NOT NULL,
-	CONSTRAINT PK_garage PRIMARY KEY (garage_id),
+-- 	CONSTRAINT PK_garage PRIMARY KEY (garage_id),
 	CONSTRAINT FK_user_id FOREIGN KEY (user_id) REFERENCES users (user_id),
-	CONSTRAINT FK_vin FOREIGN KEY (vin) REFERENCES car (vin)
+	CONSTRAINT FK_vin FOREIGN KEY (vin) REFERENCES car (vin),
+	CONSTRAINT PK_garage PRIMARY KEY (user_id, vin)
 );
 
 CREATE SEQUENCE seq_lot_id
