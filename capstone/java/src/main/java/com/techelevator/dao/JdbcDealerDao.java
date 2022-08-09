@@ -21,8 +21,8 @@ public class JdbcDealerDao implements DealerDao{
     public List<Car> getInventory(){
         List<Car> inventory = new ArrayList<>();
         String sql = "SELECT vin, make, model, year, mileage, engine, input_id, price, photo, notes, is_for_sale" +
-                " FROM car;";
-        SqlRowSet carRowSet = jdbcTemplate.queryForRowSet(sql);
+                " FROM car WHERE is_for_sale = ?;";
+        SqlRowSet carRowSet = jdbcTemplate.queryForRowSet(sql, true);
 
         while(carRowSet.next()){
             inventory.add(mapRowToCar(carRowSet));
@@ -44,7 +44,6 @@ public class JdbcDealerDao implements DealerDao{
         car.setInputId(carRowSet.getInt("input_id"));
         car.setNotes(carRowSet.getString("notes"));
         car.setForSale(carRowSet.getBoolean("is_for_sale"));
-
 
         return car;
     }
