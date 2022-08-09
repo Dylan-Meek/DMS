@@ -33,20 +33,14 @@ CREATE TABLE car (
 	price decimal (13,2) NOT NULL,
 	photo varchar(2000) NOT NULL,
 	notes varchar(500) NOT NULL,
+	is_for_sale boolean NOT NULL DEFAULT true,
 	CONSTRAINT PK_car PRIMARY KEY (vin),
 	CONSTRAINT FK_input_id FOREIGN KEY (input_id) REFERENCES inputs (input_id)
 );
 
--- CREATE SEQUENCE seq_garage_id
--- 	INCREMENT by 1
--- 	START WITH 2000
--- 	NO MAXVALUE;
-	
 CREATE TABLE garage (
--- 	garage_id int NOT NULL DEFAULT nextval('seq_garage_id'), 
 	vin varchar(50) NOT NULL,
 	user_id int NOT NULL,
--- 	CONSTRAINT PK_garage PRIMARY KEY (garage_id),
 	CONSTRAINT FK_user_id FOREIGN KEY (user_id) REFERENCES users (user_id),
 	CONSTRAINT FK_vin FOREIGN KEY (vin) REFERENCES car (vin),
 	CONSTRAINT PK_garage PRIMARY KEY (user_id, vin)
@@ -57,11 +51,11 @@ CREATE SEQUENCE seq_lot_id
 	START WITH 3000
 	NO MAXVALUE;
 	
-CREATE TABLE lot (
-lot_id int NOT NULL DEFAULT nextval ('seq_lot_id'),
-vin varchar(50) NOT NULL,
-CONSTRAINT PK_lot_id PRIMARY KEY (lot_id),
-CONSTRAINT FK_vin FOREIGN KEY (vin) REFERENCES car(vin)
-);
+-- CREATE TABLE lot (
+-- lot_id int NOT NULL DEFAULT nextval ('seq_lot_id'),
+-- vin varchar(50) NOT NULL,
+-- CONSTRAINT PK_lot_id PRIMARY KEY (lot_id),
+-- CONSTRAINT FK_vin FOREIGN KEY (vin) REFERENCES car(vin)
+-- );
 
 COMMIT;
