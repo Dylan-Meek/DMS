@@ -1,6 +1,6 @@
 BEGIN TRANSACTION;
 
-DROP TABLE IF EXISTS users, car, garage, lot;
+DROP TABLE IF EXISTS users, car, garage, lot, inputs;
 
 DROP SEQUENCE IF EXISTS seq_garage_id, seq_lot_id;
 
@@ -12,15 +12,29 @@ CREATE TABLE users (
 	CONSTRAINT PK_user PRIMARY KEY (user_id)
 );
 
+CREATE TABLE inputs (
+	input_id SERIAL,
+	input_name varchar(20) NOT NULL,
+	CONSTRAINT PK_inputs PRIMARY KEY (input_id)
+);
+	
+INSERT INTO inputs(input_name) values('New');
+INSERT INTO inputs(input_name) values('Used');
+INSERT INTO inputs(input_name) values('Certified Pre-Owned');
+
 CREATE TABLE car (
 	vin varchar(50) NOT NULL UNIQUE,
 	make varchar(50) NOT NULL,
 	model varchar(50) NOT NULL,
 	year int NOT NULL,
+	mileage int NOT NULL,
 	engine	varchar(50) NOT NULL,
+	input_id int NOT NULL,
 	price decimal (13,2) NOT NULL,
-	photo varchar(1000) NOT NULL,
-	CONSTRAINT PK_car PRIMARY KEY (vin)
+	photo varchar(2000) NOT NULL,
+	notes varchar(500) NOT NULL,
+	CONSTRAINT PK_car PRIMARY KEY (vin),
+	CONSTRAINT FK_input_id FOREIGN KEY (input_id) REFERENCES inputs (input_id)
 );
 
 CREATE SEQUENCE seq_garage_id
