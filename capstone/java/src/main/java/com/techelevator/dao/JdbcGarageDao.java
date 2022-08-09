@@ -38,6 +38,7 @@ private final JdbcTemplate jdbcTemplate;
         car.setMileage(carRowSet.getInt("mileage"));
         car.setInputId(carRowSet.getInt("input_id"));
         car.setNotes(carRowSet.getString("notes"));
+        car.setForSale(carRowSet.getBoolean("is_for_sale"));
 
         return car;
     }

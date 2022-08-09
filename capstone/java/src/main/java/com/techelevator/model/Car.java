@@ -12,6 +12,7 @@ public class Car {
     private String notes;
     private int inputId;
     private int mileage;
+    private boolean isForSale;
 
     public String getVin() {
         return vin;
@@ -91,5 +92,13 @@ public class Car {
 
     public void setMileage(int mileage) {
         this.mileage = mileage;
+    }
+
+    public boolean isForSale() {
+        return isForSale;
+    }
+
+    public void setForSale(boolean forSale) {
+        isForSale = forSale;
     }
 }
