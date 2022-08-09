@@ -20,7 +20,7 @@ public class JdbcDealerDao implements DealerDao{
     @Override
     public List<Car> getInventory(){
         List<Car> inventory = new ArrayList<>();
-        String sql = "SELECT vin, make, model, year, mileage, engine, input_id, price, photo, notes" +
+        String sql = "SELECT vin, make, model, year, mileage, engine, input_id, price, photo, notes, is_for_sale" +
                 " FROM car;";
         SqlRowSet carRowSet = jdbcTemplate.queryForRowSet(sql);
 
