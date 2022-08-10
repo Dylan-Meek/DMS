@@ -154,6 +154,8 @@ body {
   width: 100vw;
   height: 100vh;
   background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
 }
 
 [role="alert"] {
