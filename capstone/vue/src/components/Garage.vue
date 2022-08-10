@@ -1,6 +1,8 @@
 <template>
   <div>
-    <h1>My Garage</h1>
+    <div class="title">
+      <h1>My Garage</h1>
+    </div>
     <div class="garage">
       <car-card v-for="car in cars" v-bind:key="car.vin" :car="car"> </car-card>
     </div>
@@ -29,6 +31,15 @@ export default {
 </script>
 
 <style scoped>
+.title {
+  display: flex;
+  justify-content: center;
+}
+
+h1 {
+  font-family: "Montserrat", "Helvetica";
+}
+
 .inventory {
   display: flex;
   flex-direction: column;
@@ -47,5 +58,10 @@ export default {
 h1 {
   margin-left: auto;
   margin-right: auto;
+}
+
+.garage {
+  display: flex;
+  justify-content: center;
 }
 </style>
