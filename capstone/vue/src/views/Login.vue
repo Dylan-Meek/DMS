@@ -79,7 +79,7 @@ export default {
 };
 </script>
 
-<style>
+<style scoped>
 form {
   padding-top: 2%;
   padding-bottom: 1%;

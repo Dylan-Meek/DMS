@@ -2,7 +2,7 @@
   <div class="card">
     <img id="car-image" v-bind:src="`${car.photo}`" />
     <div class="flex-car">
-      <h3>{{ car.year + " " + car.make + " " + car.model }}</h3>
+      <h2>{{ car.year + " " + car.make + " " + car.model }}</h2>
       <h4>{{ "$" + car.price }}</h4>
       <h4>{{ car.mileage + " Miles" }}</h4>
       <button>Purchase</button>
@@ -45,6 +45,7 @@ export default {
   align-items: center;
   flex-direction: column;
   font-family: "Montserrat", "Helvetica";
+  margin-bottom: 50px;
 }
 
 #car-image {
@@ -67,8 +68,8 @@ button {
   color: #162228;
   background-color: #ffde32;
   border-radius: 5px;
-  width: 25%;
+  width: 8rem;
   align-content: center;
-  font-size: 0.9rem;
+  font-size: 1.1rem;
 }
 </style>
