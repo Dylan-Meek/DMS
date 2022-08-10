@@ -25,9 +25,9 @@ import java.util.List;
         }
 
         @GetMapping(path="/garage")
-        public List<Car> displayGarage(Principal principal){
+        public List<Car> displayGarage(Principal principal) {
             return garageDao.getAllCarsByUserId
                     (userDao.findIdByUsername(principal.getName()));
-                
+
         }
     }

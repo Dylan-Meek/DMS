@@ -93,7 +93,17 @@ export default {
 };
 </script>
 
+<<<<<<< HEAD
 <style scoped>
+=======
+<style>
+  @import url("https://fonts.googleapis.com/css2?family=Montserrat:ital@1&display=swap");
+
+  *{
+    font-family: 'Montserrat', 'Helvetica';
+  }
+
+>>>>>>> 8c6fdef542a967ba0fe6dc6bc023e98614cca720
 form {
   padding-top: 2%;
   padding-bottom: 1%;
@@ -143,7 +153,7 @@ button {
   color: #162228;
   background-color: #ffde32;
   border-radius: 5px;
-  width: 25%;
+  width: 40%;
   align-content: center;
   font-size: 0.9rem;
 }
