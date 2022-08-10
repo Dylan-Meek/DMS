@@ -93,7 +93,7 @@ export default {
 };
 </script>
 
-<style>
+<style scoped>
 form {
   padding-top: 2%;
   padding-bottom: 1%;
@@ -148,15 +148,15 @@ button {
   font-size: 0.9rem;
 }
 
-body {
+/* body {
   background-image: url("/62f153a316532.jpg");
   background-size: cover;
-  width: 100vw;
-  height: 100vh;
+  width: 100%;
+  height: 100%;
   background-position: center;
   background-repeat: no-repeat;
   background-attachment: fixed;
-}
+} */
 
 [role="alert"] {
   margin-left: auto;

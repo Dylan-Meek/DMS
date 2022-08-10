@@ -1,19 +1,19 @@
 <template>
-  <div id="app">
-    <div id="nav">
-      <router-link v-bind:to="{ name: 'home' }"
-        ><img src="@/assets/MotorScape.png" /></router-link
-      ><!--&nbsp;|&nbsp;-->
-      <router-link
-        v-bind:to="{ name: 'logout' }"
-        v-if="$store.state.token != ''"
-        ><button type="submit">Logout</button>
-      </router-link>
-    </div>
-    <router-view />
-  </div>
+  <nav-header></nav-header>
 </template>
-<style scoped>
+
+<script>
+import NavHeader from "@/components/NavHeader";
+
+export default {
+  setup() {},
+  components: {
+    NavHeader,
+  },
+};
+</script>
+
+<style>
 img {
   width: 15%;
   height: 10%;
@@ -26,5 +26,15 @@ button {
   width: 10%;
   align-content: center;
   font-size: 0.9rem;
+}
+
+body {
+  background-image: url("/62f153a316532.jpg");
+  background-size: cover;
+  width: 100%;
+  height: 100%;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
 }
 </style>
