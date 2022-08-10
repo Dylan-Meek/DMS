@@ -1,13 +1,10 @@
 import axios from 'axios';
 
-const http = axios.create({
-    baseURL: "http://localhost:9000"
-});
 
 export default {
 
     getInventory() {
-        return http.get('/inventory');
+        return axios.get('/inventory');
     },
 
 }
