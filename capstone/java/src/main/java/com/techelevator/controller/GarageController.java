@@ -24,9 +24,9 @@ import java.util.List;
             this.userDao = userDao;
         }
 
-        @GetMapping(path="/garage/{username}")
-        public List<Car> displayGarage(@PathVariable String username, Principal principal){
-                return garageDao.getAllCarsByUserId(userDao.findIdByUsername(principal.getName()));
+        @GetMapping(path="/garage")
+        public List<Car> displayGarage(Principal principal){
+            return garageDao.getAllCarsByUserId(userDao.findIdByUsername(principal.getName()));
                 
         }
     }
