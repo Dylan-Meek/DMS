@@ -28,4 +28,23 @@ VALUES ('li1jb4i2tyb777', 'Mercedes', 'GT R', 2021, 3000, 'V8', 2, 88000, 'https
 Insert into garage (vin, user_id)
 VALUES ('1lk32451k4b', 3);
 
+INSERT INTO car (vin, make, model, year, mileage, engine, input_id, price, photo, notes, is_for_sale)
+VALUES ('li1jb4i2tyb444', 'Ferrari', 'F430', 2012, 5000, 'V12', 2, 120000, 'https://get.wallhere.com/photo/car-vehicle-sports-car-Ferrari-Ferrari-F430-performance-car-2012-netcarshow-netcar-car-images-car-photo-F430-by-Status-Design-supercar-land-vehicle-automotive-design-automobile-make-luxury-vehicle-ferrari-spa-ferrari-f430-challenge-ferrari-360-391666.jpg', 'A very fast car.', true);
+
+INSERT INTO car (vin, make, model, year, mileage, engine, input_id, price, photo, notes, is_for_sale)
+VALUES ('li1jb4i2tyb555', 'Kia', 'Carnival', 2022, 500, 'V6', 2, 44000, 'https://upload.wikimedia.org/wikipedia/commons/thumb/3/3d/20201013_Kia_Carnival_Front_Side_%28cropped%29.jpg/1920px-20201013_Kia_Carnival_Front_Side_%28cropped%29.jpg', 'A great family vehicle', true);
+
+INSERT INTO car (vin, make, model, year, mileage, engine, input_id, price, photo, notes, is_for_sale)
+VALUES ('li1jb4i2tyb666', 'GMC', '', 1983, 120000, 'V8', 2, 26000, 'https://12pointsignworks.com/wp-content/uploads/2018/10/A-Team-Van-Mr-T.jpg', 'It is the A-Team van, Fool!', true);
+
+INSERT INTO car (vin, make, model, year, mileage, engine, input_id, price, photo, notes, is_for_sale)
+VALUES ('li1jb4i2tyb777', 'Mercedes', 'GT R', 2021, 3000, 'V8', 2, 88000, 'https://cdn.carbuzz.com/gallery-images/1600/589000/400/589431.jpg', 'A AMG masterpiece', true);
+
+INSERT INTO car (vin, make, model, year, mileage, engine, input_id, price, photo, notes, is_for_sale)
+VALUES ('li1jb4i2tyb888', 'Mercedes', 'C63', 2010, 4000, 'V8', 2,60000, 'https://autotraderau-res.cloudinary.com/image/upload/t_gl/v1/glasses/DBTMKV0S.jpg', 'ANOTHER AMG masterpiece', true);
+
+INSERT INTO car (vin, make, model, year, mileage, engine, input_id, price, photo, notes, is_for_sale)
+VALUES ('li1jb4i2tyb999', 'Chevrolet', 'Impala', 2018, 30000, 'V6', 2, 26000, 'https://di-uploads-development.dealerinspire.com/betleychevy-legacymigration0720/uploads/2020/07/2018ChevyImpala-1-1024x595.jpg', 'WOW! That is a nice car!', true);
+
+
 COMMIT TRANSACTION;
