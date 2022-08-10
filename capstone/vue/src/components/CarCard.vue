@@ -29,9 +29,13 @@ export default {
 };
 </script>
 
-<style>
+<style scoped>
 @import url("https://fonts.googleapis.com/css2?family=Montserrat:ital@1&display=swap");
 
+  *{
+    font-family: 'Montserrat', 'Helvetica';
+  }
+  
 .card {
   display: flex;
   border: 2px solid black;

@@ -14,6 +14,11 @@
   </div>
 </template>
 <style scoped>
+
+
+  /* * {
+  font-family: "Montserrat", "Helvetica";
+} */
 img {
   width: 15%;
   height: 10%;
