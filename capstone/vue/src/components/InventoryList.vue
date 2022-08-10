@@ -1,11 +1,10 @@
 <template>
   <div>
-    <h1>Inventory</h1>
+    <div class="title">
+      <h1>Inventory</h1>
+    </div>
     <div class="inventory">
-      <car-card v-for="car in cars" 
-      v-bind:key="car.vin"
-      :car="car">
-            </car-card>
+      <car-card v-for="car in cars" v-bind:key="car.vin" :car="car"> </car-card>
     </div>
   </div>
 </template>
@@ -16,7 +15,7 @@ import carCard from "@/components/CarCard.vue";
 
 export default {
   components: {
-    carCard
+    carCard,
   },
   data() {
     return {
@@ -32,10 +31,21 @@ export default {
 </script>
 
 <style scoped>
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:ital@1&display=swap");
+
+.title {
+  display: flex;
+  justify-content: center;
+}
+
+h1 {
+  font-family: "Montserrat", "Helvetica";
+}
+
 .inventory {
   display: flex;
-  flex-direction: column;
-  justify-content: space-between;
+  flex-direction: row;
+  justify-content: space-evenly;
   align-items: center;
 }
 .car {

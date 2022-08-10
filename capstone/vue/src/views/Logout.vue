@@ -6,7 +6,10 @@
 export default {
   created() {
     this.$store.commit("LOGOUT");
-    this.$router.push("/login");
-  }
+    this.$router.push("/");
+  },
 };
 </script>
+
+<style scoped>
+</style>
