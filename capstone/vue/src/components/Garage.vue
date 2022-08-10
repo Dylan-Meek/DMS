@@ -2,10 +2,7 @@
   <div>
     <h1>My Garage</h1>
     <div class="garage">
-      <car-card v-for="car in cars" 
-      v-bind:key="car.vin"
-      :car="car">
-            </car-card>
+      <car-card v-for="car in cars" v-bind:key="car.vin" :car="car"> </car-card>
     </div>
   </div>
 </template>
@@ -16,7 +13,7 @@ import carCard from "@/components/CarCard.vue";
 
 export default {
   components: {
-    carCard
+    carCard,
   },
   data() {
     return {
@@ -24,10 +21,9 @@ export default {
     };
   },
   created() {
-garageService.getGarage().then((response) => {
-    this.cars = response.data;
-});
-
+    garageService.getGarage().then((response) => {
+      this.cars = response.data;
+    });
   },
 };
 </script>
@@ -46,5 +42,10 @@ garageService.getGarage().then((response) => {
   flex: 1;
   margin: 0 20px;
   text-align: center;
+}
+
+h1 {
+  margin-left: auto;
+  margin-right: auto;
 }
 </style>
