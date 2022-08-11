@@ -11,10 +11,10 @@
       <input class="search" type="text" id="yearFilter" v-model="filter.year" placeholder="Search Year"/>
       </div>
     </div>
-
+<!-- <div id="button"> -->
 <button href="#" v-on:click="showForm = true" v-show="!showForm">Add Vehicle</button>
-
-    <form v-on:submit.prevent="addVehicle" v-show="showForm">
+<!-- </div> -->
+    <form id="form" v-on:submit.prevent="addVehicle" v-show="showForm">
         <div class="form-element">
         <label for="vin">Vin:</label>
         <input id="vin" type="text" v-model.trim="newVehicle.vin"/>
@@ -140,6 +140,9 @@ export default {
 <style scoped>
 @import url("https://fonts.googleapis.com/css2?family=Montserrat:ital@1&display=swap");
 
+*{
+  font-family: Montserrat, Helvetica;
+}
 .title {
   display: flex;
   flex-direction: column;
@@ -184,4 +187,72 @@ h1 {
   font-size: 1rem;
   border: 1px solid #162228;
 }
+
+button{
+margin-left: 45%;
+margin-bottom: 2%;
+}
+
+#form{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: rgba(249, 247, 247, 0.7);  
+  margin-left: 30%;
+  margin-right: 30%;
+  margin-bottom: 2%;
+  border-radius: 10px;
+}
+.form-element{
+display:flex;
+flex-direction: column;
+margin-left: 40%;
+margin-right: 40%;
+}
+
+div.form-element > label {
+  margin-top: 1.5vh;
+  display: block;
+}
+
+div.form-element > textarea {
+  height: 60px;
+  width: 300px;
+}
+
+div.form-element > input,
+div.form-element > select {
+  margin-top: 1%;
+  height: 15px;
+  width: 300px;
+}
+div.form-element > textarea {
+  height: 30px;
+  width: 300px;
+}
+form > input[type="button"] {
+margin-left: auto;
+margin-right: auto;
+color: #162228;
+background-color: #f9f7f7;
+border-radius: 5px;
+width: 25%;
+align-content: center;
+font-size: 0.9rem;
+margin-bottom: 2vh;
+}
+
+form > input[type="submit"] {
+margin-left: auto;
+margin-right: auto;
+color: #162228;
+background-color: #ffde32;
+border-radius: 5px;
+width: 25%;
+align-content: center;
+font-size: 0.9rem;
+margin-top: 2vh;
+margin-bottom: 2vh;
+}
+
 </style>

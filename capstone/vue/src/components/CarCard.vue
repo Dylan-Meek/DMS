@@ -44,7 +44,7 @@ export default {
   height: 60vh;
   min-width: 275px;
   min-height: 400px;
-  background-color: rgba(255, 255, 255, 0.7);
+  background-color: rgba(249, 247, 247, 0.7);  
   justify-content: flex-start;
   align-items: center;
   flex-direction: column;
