@@ -31,6 +31,15 @@ public class JdbcDealerDao implements DealerDao{
         return inventory;
     }
 
+    @Override
+    public boolean addVehicle(Car car){
+        String sql = "INSERT INTO car (vin, make, model, year, mileage, engine, input_id, price, photo, notes)" +
+                " VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?);";
+        jdbcTemplate.update(sql, car.getVin(), car.getMake(), car.getModel(), car.getYear(), car.getMileage(), car.getEngine(), car.getInputId(), car.getPrice(),car.getPhoto(), car.getNotes());
+
+        return true;
+    }
+
     private Car mapRowToCar(SqlRowSet carRowSet){
         Car car = new Car();
         car.setVin(carRowSet.getString("vin"));
@@ -47,4 +56,6 @@ public class JdbcDealerDao implements DealerDao{
 
         return car;
     }
+
+
 }
