@@ -11,6 +11,12 @@
       >
         <img id="logout" src="@/assets/logout.png" />
       </router-link>
+      <router-link
+        v-bind:to="{ name: 'login' }"
+        v-if="$store.state.token === ''"
+      >
+        <img id="loginIcon" src="@/assets/login.png" />
+      </router-link>
     </div>
     <router-view />
   </div>
@@ -37,10 +43,19 @@ div#nav {
 }
 
 #logout {
-  height: 80%;
-  width: 80%;
+  height: 50%;
+  width: 50%;
   padding-right: 1rem;
   color: #f9f7f7;
+  padding-top: 1rem;
+}
+
+#loginIcon {
+  height: 50%;
+  width: 50%;
+  padding-right: 1rem;
+  color: #f9f7f7;
+  padding-top: 1rem;
 }
 
 button {

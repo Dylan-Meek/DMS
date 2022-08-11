@@ -1,7 +1,6 @@
 <template>
   <nav-header></nav-header>
 </template>
-<<<<<<< HEAD
 
 <script>
 import NavHeader from "@/components/NavHeader";
@@ -15,14 +14,9 @@ export default {
 </script>
 
 <style>
-=======
-<style scoped>
-
-
-  /* * {
+/* * {
   font-family: "Montserrat", "Helvetica";
 } */
->>>>>>> 8c6fdef542a967ba0fe6dc6bc023e98614cca720
 img {
   width: 15%;
   height: 10%;

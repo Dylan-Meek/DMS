@@ -93,17 +93,13 @@ export default {
 };
 </script>
 
-<<<<<<< HEAD
 <style scoped>
-=======
-<style>
-  @import url("https://fonts.googleapis.com/css2?family=Montserrat:ital@1&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:ital@1&display=swap");
 
-  *{
-    font-family: 'Montserrat', 'Helvetica';
-  }
+* {
+  font-family: "Montserrat", "Helvetica";
+}
 
->>>>>>> 8c6fdef542a967ba0fe6dc6bc023e98614cca720
 form {
   padding-top: 2%;
   padding-bottom: 1%;
