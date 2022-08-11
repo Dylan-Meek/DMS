@@ -2,7 +2,7 @@ BEGIN TRANSACTION;
 
 DROP TABLE IF EXISTS users, car, garage, lot, inputs;
 
-DROP SEQUENCE IF EXISTS seq_garage_id, seq_lot_id;
+DROP SEQUENCE IF EXISTS seq_garage_id;
 
 CREATE TABLE users (
 	user_id SERIAL,
@@ -13,14 +13,10 @@ CREATE TABLE users (
 );
 
 CREATE TABLE inputs (
-	input_id SERIAL,
+	input_id int NOT NULL,
 	input_name varchar(20) NOT NULL,
 	CONSTRAINT PK_inputs PRIMARY KEY (input_id)
 );
-	
-INSERT INTO inputs(input_name) values('New');
-INSERT INTO inputs(input_name) values('Used');
-INSERT INTO inputs(input_name) values('Certified Pre-Owned');
 
 CREATE TABLE car (
 	vin varchar(50) NOT NULL UNIQUE,
@@ -46,10 +42,10 @@ CREATE TABLE garage (
 	CONSTRAINT PK_garage PRIMARY KEY (user_id, vin)
 );
 
-CREATE SEQUENCE seq_lot_id
-	INCREMENT by 1
-	START WITH 3000
-	NO MAXVALUE;
+-- CREATE SEQUENCE seq_lot_id
+-- 	INCREMENT by 1
+-- 	START WITH 3000
+-- 	NO MAXVALUE;
 	
 -- CREATE TABLE lot (
 -- lot_id int NOT NULL DEFAULT nextval ('seq_lot_id'),
@@ -59,3 +55,5 @@ CREATE SEQUENCE seq_lot_id
 -- );
 
 COMMIT;
+
+

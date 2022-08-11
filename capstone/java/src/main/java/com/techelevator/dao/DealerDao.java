@@ -8,4 +8,6 @@ public interface DealerDao {
 
     List<Car> getInventory();
 
+    boolean addVehicle(Car car);
+
 }

@@ -4,6 +4,15 @@ INSERT INTO users (username,password_hash,role) VALUES ('user','$2a$08$UkVvwpULi
 INSERT INTO users (username,password_hash,role) VALUES ('admin','$2a$08$UkVvwpULis18S19S5pZFn.YHPZt3oaqHZnDwqbCW9pft6uFtkXKDC','ROLE_ADMIN');
 INSERT INTO users (username,password_hash,role) VALUES ('carly','$2a$10$dmIVOYNpMh49MoP5DWG37Oy2BlCBoYxgw1f9o06cLxJEwkz1qaR06','ROLE_USER');
 
+INSERT INTO inputs (input_id, input_name)
+VALUES (1, 'New');
+
+INSERT INTO inputs (input_id, input_name)
+VALUES (2, 'Used');
+
+INSERT INTO inputs (input_id, input_name)
+VALUES (3, 'Certified Pre-Owned');
+
 INSERT INTO car (vin, make, model, year, mileage, engine, input_id, price, photo, notes, is_for_sale)
 VALUES ('1lk32451k4b', 'Nissan', 'Cursebox', 1969, 420000, 'V1', 2, 4200, 'https://i.insider.com/5637e2ba9dd7ccfc418bb91e?width=1300&format=jpeg&auto=webp', 'This is a terrible car, but it IS YOUR terrible car.', false);
 
@@ -33,6 +42,7 @@ VALUES ('li1jb4i2tyb888', 'Mercedes', 'C63', 2010, 4000, 'V8', 2,60000, 'https:/
 
 INSERT INTO car (vin, make, model, year, mileage, engine, input_id, price, photo, notes, is_for_sale)
 VALUES ('li1jb4i2tyb999', 'Chevrolet', 'Impala', 2018, 30000, 'V6', 2, 26000, 'https://di-uploads-development.dealerinspire.com/betleychevy-legacymigration0720/uploads/2020/07/2018ChevyImpala-1-1024x595.jpg', 'WOW! That is a nice car!', true);
+
 
 
 COMMIT TRANSACTION;
