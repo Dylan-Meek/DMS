@@ -94,11 +94,11 @@ export default {
 </script>
 
 <style scoped>
-  @import url("https://fonts.googleapis.com/css2?family=Montserrat:ital@1&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:ital@1&display=swap");
 
-  *{
-    font-family: 'Montserrat', 'Helvetica';
-  }
+* {
+  font-family: "Montserrat", "Helvetica";
+}
 
 form {
   padding-top: 2%;
