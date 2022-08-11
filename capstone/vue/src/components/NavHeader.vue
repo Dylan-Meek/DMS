@@ -4,6 +4,17 @@
       <router-link v-bind:to="{ name: 'home' }"
         ><img id="homeLink" src="@/assets/MotorScape.png"
       /></router-link>
+      <div id="nav-links">
+        <!-- <router-link class="routerlink" v-bind:to="{ name: 'home' }"
+          ><h2>Home</h2>
+        </router-link> -->
+        <router-link class="routerlink" v-bind:to="{ name: 'inventory' }"
+          ><h2>Browse</h2>
+        </router-link>
+        <router-link class="routerlink" v-bind:to="{ name: 'customerGarage' }"
+          ><h2>My Garage</h2>
+        </router-link>
+      </div>
 
       <router-link
         v-bind:to="{ name: 'logout' }"
@@ -31,9 +42,26 @@
 div#nav {
   display: flex;
   justify-content: space-between;
+  margin-left: 0%;
+  margin-right: 0%;
   height: 4rem;
   background: #162228;
   border-radius: 5px;
+}
+
+.routerlink {
+  display: block;
+  color: #f9f7f7;
+  text-decoration: none;
+  padding-right: 2%;
+}
+div#nav-links {
+  display: flex;
+  flex-direction: row;
+  justify-content: left;
+  color: #f9f7f7;
+  font-family: "Montserrat", "Helvetica";
+  width: 75%;
 }
 
 #homeLink {
