@@ -1,6 +1,7 @@
 package com.techelevator.dao;
 
 import com.techelevator.model.Car;
+import com.techelevator.model.User;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.support.rowset.SqlRowSet;
 import org.springframework.stereotype.Component;
@@ -38,6 +39,25 @@ public class JdbcDealerDao implements DealerDao{
         jdbcTemplate.update(sql, car.getVin(), car.getMake(), car.getModel(), car.getYear(), car.getMileage(), car.getEngine(), car.getInputId(), car.getPrice(),car.getPhoto(), car.getNotes());
 
         return true;
+    }
+
+    @Override
+    public Car purchaseVehicle(Car car, int userId){
+        String sql = "UPDATE car SET is_for_sale = ? WHERE vin = ?";
+        jdbcTemplate.update(sql, false, car.getVin());
+
+        String updateGarage = "INSERT INTO garage (vin, user_id)" +
+                " VALUES (?, ?)";
+        jdbcTemplate.update(updateGarage, car.getVin(), userId);
+
+        String sqlUpdatedCar = "SELECT vin, make, model, year, mileage, engine, input_id, price, photo, notes, is_for_sale" +
+                " FROM car WHERE vin = ?";
+        Car updatedCar = new Car();
+        SqlRowSet sqlRowSet = jdbcTemplate.queryForRowSet(sqlUpdatedCar, car.getVin());
+        if(sqlRowSet.next()) {
+            updatedCar = mapRowToCar(sqlRowSet);
+        }
+        return updatedCar;
     }
 
     private Car mapRowToCar(SqlRowSet carRowSet){

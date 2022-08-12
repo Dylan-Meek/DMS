@@ -5,12 +5,22 @@
       <h2>{{ car.year + " " + car.make + " " + car.model }}</h2>
       <h4>{{ "$" + car.price }}</h4>
       <h4>{{ car.mileage + " Miles" }}</h4>
-      <button>Purchase</button>
+      <button
+        v-on:click="purchase"
+        v-if="
+          car.forSale === true &&
+          $store.state.user.authorities[0].name === 'ROLE_USER'
+        "
+      >
+        Purchase
+      </button>
     </div>
   </div>
 </template>
 
 <script>
+import inventoryService from "@/services/InventoryService";
+
 export default {
   name: "car-card",
   props: ["car"],
@@ -25,6 +35,10 @@ export default {
         return "Certified Pre-Owned";
       }
     },
+    purchase() {
+      inventoryService.purchaseVehicle(this.car, this.$store.state.user);
+      this.$router.push("/garage");
+    },
   },
 };
 </script>
@@ -32,10 +46,10 @@ export default {
 <style scoped>
 @import url("https://fonts.googleapis.com/css2?family=Montserrat:ital@1&display=swap");
 
-  *{
-    font-family: 'Montserrat', 'Helvetica';
-  }
-  
+* {
+  font-family: "Montserrat", "Helvetica";
+}
+
 .card {
   display: flex;
   border: 2px solid black;
@@ -44,7 +58,7 @@ export default {
   height: 60vh;
   min-width: 275px;
   min-height: 400px;
-  background-color: rgba(249, 247, 247, 0.7);  
+  background-color: rgba(249, 247, 247, 0.7);
   justify-content: flex-start;
   align-items: center;
   flex-direction: column;

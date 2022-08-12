@@ -9,6 +9,10 @@ export default {
 
     pushVehicle(car) {
         return axios.post('/inventory', car);
+    },
+
+    purchaseVehicle(car) {
+        return axios.put('/inventory', car);
     }
 
 }
