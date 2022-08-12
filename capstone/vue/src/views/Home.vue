@@ -1,8 +1,7 @@
 <template>
   <div class="home">
     <div id="homeCenter">
-      <h1>Cars</h1>
-      <h1>Motherfucker</h1>
+      <img id="MainLogo" src="@/assets/MotorScape.png" alt="" />
       <router-link :to="{ name: 'login' }"
         ><button id="LoginButton">Login</button></router-link
       >
@@ -52,5 +51,10 @@ button {
 h1 {
   color: #f9f7f7;
   font-size: 4rem;
+}
+
+#MainLogo {
+  width: 100%;
+  width: 100%;
 }
 </style>
