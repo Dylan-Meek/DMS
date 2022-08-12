@@ -61,6 +61,20 @@ public class JdbcUserDao implements UserDao {
     }
 
     @Override
+    public List<User> findCustomers() {
+        List<User> users = new ArrayList<>();
+        String sql = "select * from users where role = 'ROLE_USER'";
+
+        SqlRowSet results = jdbcTemplate.queryForRowSet(sql);
+        while (results.next()) {
+            User user = mapRowToUser(results);
+            users.add(user);
+        }
+
+        return users;
+    }
+
+    @Override
     public User findByUsername(String username) {
         if (username == null) throw new IllegalArgumentException("Username cannot be null");
 
@@ -73,12 +87,12 @@ public class JdbcUserDao implements UserDao {
     }
 
     @Override
-    public boolean create(String username, String password, String role) {
-        String insertUserSql = "insert into users (username,password_hash,role) values (?,?,?)";
+    public boolean create(String username, String password, String firstName, String lastName, String email, String role) {
+        String insertUserSql = "insert into users (username,password_hash, firstName, lastName, email, role) values (?, ?, ?, ?, ?, ?)";
         String password_hash = new BCryptPasswordEncoder().encode(password);
         String ssRole = role.toUpperCase().startsWith("ROLE_") ? role.toUpperCase() : "ROLE_" + role.toUpperCase();
 
-        return jdbcTemplate.update(insertUserSql, username, password_hash, ssRole) == 1;
+        return jdbcTemplate.update(insertUserSql, username, password_hash, firstName, lastName, email, ssRole) == 1;
     }
 
 
@@ -87,7 +101,11 @@ public class JdbcUserDao implements UserDao {
         user.setId(rs.getInt("user_id"));
         user.setUsername(rs.getString("username"));
         user.setPassword(rs.getString("password_hash"));
+        user.setFirstName(rs.getString("first_name"));
+        user.setLastName(rs.getString("last_name"));
+        user.setEmail(rs.getString("email"));
         user.setAuthorities(Objects.requireNonNull(rs.getString("role")));
+
         user.setActivated(true);
         return user;
     }

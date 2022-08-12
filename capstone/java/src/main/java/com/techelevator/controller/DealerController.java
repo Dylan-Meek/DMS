@@ -3,6 +3,7 @@ package com.techelevator.controller;
 import com.techelevator.dao.DealerDao;
 import com.techelevator.dao.UserDao;
 import com.techelevator.model.Car;
+import com.techelevator.model.User;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -29,5 +30,10 @@ public class DealerController {
     public Car addVehicle(@RequestBody Car car) {
         dealerDao.addVehicle(car);
         return car;
+    }
+
+    @GetMapping(path = "/customers")
+    public List<User> displayCustomers() {
+        return userDao.findCustomers();
     }
 }

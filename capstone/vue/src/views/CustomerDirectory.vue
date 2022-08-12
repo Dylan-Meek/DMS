@@ -1,15 +1,35 @@
 <template>
-    <div>
-
+  <div>
+    <div class="customers">
+      <customer-card
+        v-for="user in customers"
+        v-bind:key="user.username"
+        :user="user"
+      ></customer-card>
     </div>
+  </div>
 </template>
 
 <script>
-    export default {
-        
-    }
+import CustomerCard from "@/components/CustomerCard.vue";
+import dealerService from "@/services/DealerService.vue";
+
+export default {
+  components: {
+    CustomerCard,
+  },
+  data() {
+    return {
+      customers: [],
+    };
+  },
+  created() {
+    dealerService.getCustomers().then((response) => {
+      this.customers = response.data;
+    });
+  },
+};
 </script>
 
-<style lang="scss" scoped>
-
+<style scoped>
 </style>
