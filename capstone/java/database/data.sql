@@ -1,8 +1,8 @@
 BEGIN TRANSACTION;
 
-INSERT INTO users (username,password_hash,role) VALUES ('user','$2a$08$UkVvwpULis18S19S5pZFn.YHPZt3oaqHZnDwqbCW9pft6uFtkXKDC','ROLE_USER');
-INSERT INTO users (username,password_hash,role) VALUES ('admin','$2a$08$UkVvwpULis18S19S5pZFn.YHPZt3oaqHZnDwqbCW9pft6uFtkXKDC','ROLE_ADMIN');
-INSERT INTO users (username,password_hash,role) VALUES ('carly','$2a$10$dmIVOYNpMh49MoP5DWG37Oy2BlCBoYxgw1f9o06cLxJEwkz1qaR06','ROLE_USER');
+INSERT INTO users (username, first_name, last_name, email, password_hash,role) VALUES ('user', 'user1', 'user1', 'user1@test.com', '$2a$08$UkVvwpULis18S19S5pZFn.YHPZt3oaqHZnDwqbCW9pft6uFtkXKDC','ROLE_USER');
+INSERT INTO users (username, first_name, last_name, email, password_hash,role) VALUES ('admin', 'admin1', 'admin1', 'admin1@yahoo.com','$2a$08$UkVvwpULis18S19S5pZFn.YHPZt3oaqHZnDwqbCW9pft6uFtkXKDC','ROLE_ADMIN');
+INSERT INTO users (username, first_name, last_name, email, password_hash,role) VALUES ('carly', 'carly', 'trimboli', 'carly@test.com','$2a$10$dmIVOYNpMh49MoP5DWG37Oy2BlCBoYxgw1f9o06cLxJEwkz1qaR06','ROLE_USER');
 
 INSERT INTO inputs (input_id, input_name)
 VALUES (1, 'New');

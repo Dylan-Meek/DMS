@@ -1,11 +1,14 @@
 BEGIN TRANSACTION;
 
-DROP TABLE IF EXISTS users, car, garage, lot, inputs;
+DROP TABLE IF EXISTS users, car, garage, inputs;
 
 DROP SEQUENCE IF EXISTS seq_garage_id;
 
 CREATE TABLE users (
 	user_id SERIAL,
+	first_name varchar(50) NOT NULL,
+	last_name varchar(50) NOT NULL,
+	email varchar (200) NOT NULL,
 	username varchar(50) NOT NULL UNIQUE,
 	password_hash varchar(200) NOT NULL,
 	role varchar(50) NOT NULL,
@@ -42,17 +45,6 @@ CREATE TABLE garage (
 	CONSTRAINT PK_garage PRIMARY KEY (user_id, vin)
 );
 
--- CREATE SEQUENCE seq_lot_id
--- 	INCREMENT by 1
--- 	START WITH 3000
--- 	NO MAXVALUE;
-	
--- CREATE TABLE lot (
--- lot_id int NOT NULL DEFAULT nextval ('seq_lot_id'),
--- vin varchar(50) NOT NULL,
--- CONSTRAINT PK_lot_id PRIMARY KEY (lot_id),
--- CONSTRAINT FK_vin FOREIGN KEY (vin) REFERENCES car(vin)
--- );
 
 COMMIT;
 
