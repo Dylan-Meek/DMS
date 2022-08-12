@@ -16,13 +16,29 @@ public class User {
    @JsonIgnore
    private boolean activated;
    private Set<Authority> authorities = new HashSet<>();
+   private String firstName;
+   private String lastName;
+   private String email;
 
-   public User() { }
+   public User() {
+
+   }
 
    public User(int id, String username, String password, String authorities) {
       this.id = id;
       this.username = username;
       this.password = password;
+      if(authorities != null) this.setAuthorities(authorities);
+      this.activated = true;
+   }
+
+   public User(int id, String username, String password, String firstName, String lastName, String email, String authorities) {
+      this.id = id;
+      this.username = username;
+      this.password = password;
+      this.firstName = firstName;
+      this.lastName = lastName;
+      this.email = email;
       if(authorities != null) this.setAuthorities(authorities);
       this.activated = true;
    }
@@ -67,6 +83,30 @@ public class User {
       this.authorities = authorities;
    }
 
+   public String getFirstName() {
+      return firstName;
+   }
+
+   public void setFirstName(String firstName) {
+      this.firstName = firstName;
+   }
+
+   public String getLastName() {
+      return lastName;
+   }
+
+   public void setLastName(String lastName) {
+      this.lastName = lastName;
+   }
+
+   public String getEmail() {
+      return email;
+   }
+
+   public void setEmail(String email) {
+      this.email = email;
+   }
+
    public void setAuthorities(String authorities) {
       String[] roles = authorities.split(",");
       for(String role : roles) {
@@ -84,6 +124,9 @@ public class User {
               activated == user.activated &&
               Objects.equals(username, user.username) &&
               Objects.equals(password, user.password) &&
+              Objects.equals(firstName, user.firstName) &&
+              Objects.equals(lastName, user.lastName) &&
+              Objects.equals(email, user.email) &&
               Objects.equals(authorities, user.authorities);
    }
 

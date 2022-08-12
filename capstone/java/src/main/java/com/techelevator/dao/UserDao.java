@@ -10,11 +10,13 @@ public interface UserDao {
 
     List<User> findAll();
 
+    List<User> findCustomers();
+
     User getUserById(int userId);
 
     User findByUsername(String username);
 
     int findIdByUsername(String username);
 
-    boolean create(String username, String password, String role);
+    boolean create(String username, String password, String firstName, String lastName, String email, String role);
 }

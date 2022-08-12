@@ -37,4 +37,9 @@ public class DealerController {
     public Car buyVehicle(@RequestBody Car car, Principal principal) {
         return dealerDao.purchaseVehicle(car, userDao.findIdByUsername(principal.getName()));
     }
+    
+    @GetMapping(path = "/customers")
+    public List<User> displayCustomers() {
+        return userDao.findCustomers();
+    }
 }

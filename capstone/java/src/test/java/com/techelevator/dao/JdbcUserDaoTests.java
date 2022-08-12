@@ -6,15 +6,17 @@ import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 import org.springframework.dao.DataIntegrityViolationException;
+import org.springframework.expression.spel.ast.NullLiteral;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 
+import javax.validation.constraints.Null;
 import java.util.List;
 
 public class JdbcUserDaoTests extends BaseDaoTests {
-    protected static final User USER_1 = new User(1, "user1", "user1", "ROLE_USER");
-    protected static final User USER_2 = new User(2, "user2", "user2", "ROLE_USER");
-    private static final User USER_3 = new User(3, "user3", "user3", "ROLE_USER");
+    protected static final User USER_1 = new User(1, "user1", "user1", "user", "1", "user1@gmail.com", "ROLE_USER");
+    protected static final User USER_2 = new User(2, "user2", "user2", "user", "2", "user2@gmail.com", "ROLE_USER");
+    private static final User USER_3 = new User(3, "user3", "user3", "user", "3", "user3@gmail.com", "ROLE_USER");
 
     private JdbcUserDao sut;
 
@@ -83,24 +85,25 @@ public class JdbcUserDaoTests extends BaseDaoTests {
 
     @Test(expected = DataIntegrityViolationException.class)
     public void create_user_with_null_username() {
-        sut.create(null, USER_3.getPassword(), "ROLE_USER");
+        sut.create(null, USER_3.getPassword(), USER_3.getFirstName(), USER_3.getLastName(), USER_3.getEmail(),"ROLE_USER");
     }
 
     @Test(expected = DataIntegrityViolationException.class)
     public void create_user_with_existing_username() {
-        sut.create(USER_1.getUsername(), USER_3.getPassword(), "ROLE_USER");
+        sut.create(USER_1.getUsername(), USER_3.getPassword(), USER_3.getFirstName(), USER_3.getLastName(), USER_3.getEmail(),"ROLE_USER");
     }
 
     @Test(expected = IllegalArgumentException.class)
     public void create_user_with_null_password() {
-        sut.create(USER_3.getUsername(), null, "ROLE_USER");
+        sut.create(USER_3.getUsername(), null, USER_3.getFirstName(), USER_3.getLastName(), USER_3.getEmail(),"ROLE_USER");
     }
+
 
     @Test
     public void create_user_creates_a_user() {
-        User newUser = new User(-1, "new", "user", "ROLE_USER");
+        User newUser = new User(-1, "new", "user", "user", "-1", "user-1@gmail.com", "ROLE_USER");
 
-        boolean userWasCreated = sut.create(newUser.getUsername(), newUser.getPassword(), "ROLE_USER");
+        boolean userWasCreated = sut.create(newUser.getUsername(), newUser.getPassword(), newUser.getFirstName(), newUser.getLastName(), newUser.getEmail(), "ROLE_USER");
 
         Assert.assertTrue(userWasCreated);
 
