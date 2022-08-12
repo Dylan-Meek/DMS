@@ -32,7 +32,7 @@ button {
 }
 
 body {
-  background-image: url("/62f153a316532.jpg");
+  background-image: url("/Background.jpg");
   background-size: cover;
   width: 100%;
   height: 100%;
