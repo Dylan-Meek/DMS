@@ -141,7 +141,7 @@ button {
 }
 
 body {
-  background-image: url("/Background.jpg");
+  background-image: url("~@/assets/Background.jpg");
   background-size: cover;
   width: 100vw;
   height: 100vh;
