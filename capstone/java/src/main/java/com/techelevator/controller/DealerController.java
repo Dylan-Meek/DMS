@@ -1,6 +1,7 @@
 package com.techelevator.controller;
 
 import com.techelevator.dao.DealerDao;
+import com.techelevator.dao.GarageDao;
 import com.techelevator.dao.UserDao;
 import com.techelevator.model.Car;
 import com.techelevator.model.User;
@@ -15,10 +16,12 @@ public class DealerController {
 
     private DealerDao dealerDao;
     private UserDao userDao;
+    private GarageDao garageDao;
 
-    public DealerController(DealerDao dealerDao, UserDao userDao) {
+    public DealerController(DealerDao dealerDao, UserDao userDao, GarageDao garageDao) {
         this.dealerDao = dealerDao;
         this.userDao = userDao;
+        this.garageDao = garageDao;
     }
 
     @GetMapping(path = "/inventory")
@@ -42,4 +45,9 @@ public class DealerController {
     public List<User> displayCustomers() {
         return userDao.findCustomers();
     }
+
+
+    @GetMapping(path = "/garage/{id}")
+    public List<Car> displayUserCars (@PathVariable int id){
+        return garageDao.getAllCarsByUserId(id);}
 }

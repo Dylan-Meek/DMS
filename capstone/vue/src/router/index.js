@@ -7,6 +7,7 @@ import Register from '../views/Register.vue'
 import Inventory from "@/views/Inventory.vue"
 import store from '../store/index'
 import CustomerGarage from '../views/CustomerGarage.vue'
+import CustomerDirectory from '../views/CustomerDirectory.vue'
 
 
 Vue.use(Router)
@@ -70,6 +71,14 @@ const router = new Router({
       component: CustomerGarage,
       meta: {
         requiresAuth: false   // This was originally true.
+      }
+    },
+    {
+      path: "/customers",
+      name: "customers",
+      component: CustomerDirectory,
+      meta: {
+        requiresAuth: false
       }
 
     }

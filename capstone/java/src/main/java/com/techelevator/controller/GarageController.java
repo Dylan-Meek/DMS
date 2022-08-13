@@ -28,6 +28,5 @@ import java.util.List;
         public List<Car> displayGarage(Principal principal) {
             return garageDao.getAllCarsByUserId
                     (userDao.findIdByUsername(principal.getName()));
-
         }
     }
