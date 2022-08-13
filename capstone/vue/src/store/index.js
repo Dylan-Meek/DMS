@@ -19,8 +19,7 @@ if (currentToken != null) {
 export default new Vuex.Store({
   state: {
     token: currentToken || '',
-    user: currentUser || {},
-    garage: [],
+    user: currentUser || {}
   },
   mutations: {
     SET_AUTH_TOKEN(state, token) {
@@ -38,10 +37,6 @@ export default new Vuex.Store({
       state.token = '';
       state.user = {};
       axios.defaults.headers.common = {};
-    },
-    SET_GARAGE(state, cars) {
-      state.garage = cars;
-    },
-
+    }
   }
 })
