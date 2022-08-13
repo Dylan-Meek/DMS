@@ -37,7 +37,8 @@ export default {
     },
     purchase() {
       inventoryService.purchaseVehicle(this.car, this.$store.state.user);
-      this.$router.push("/garage");
+        setTimeout(()=>
+      this.$router.push({path: "/garage"}), 50);
     },
   },
 };
