@@ -5,15 +5,17 @@
       <h2>{{ car.year + " " + car.make + " " + car.model }}</h2>
       <h4>{{ "$" + car.price }}</h4>
       <h4>{{ car.mileage + " Miles" }}</h4>
-      <button
-        v-on:click="purchase"
-        v-if="
-          car.forSale === true &&
-          $store.state.user.authorities[0].name === 'ROLE_USER'
-        "
-      >
-        Purchase
-      </button>
+      <div v-if="$store.state.token !== ''">
+        <button
+          v-on:click="purchase"
+          v-if="
+            car.forSale === true &&
+            $store.state.user.authorities[0].name === 'ROLE_USER'
+          "
+        >
+          Purchase
+        </button>
+      </div>
     </div>
   </div>
 </template>

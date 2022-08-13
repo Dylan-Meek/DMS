@@ -30,14 +30,16 @@
       </div>
     </div>
     <!-- <div id="button"> -->
-    <button
-      v-if="$store.state.user.authorities[0].name === 'ROLE_ADMIN'"
-      href="#"
-      v-on:click="showForm = true"
-      v-show="!showForm"
-    >
-      Add Vehicle
-    </button>
+    <div v-if="$store.state.token !== ''">
+      <button
+        v-if="$store.state.user.authorities[0].name === 'ROLE_ADMIN'"
+        href="#"
+        v-on:click="showForm = true"
+        v-show="!showForm"
+      >
+        Add Vehicle
+      </button>
+    </div>
     <!-- </div> -->
     <form id="form" v-on:submit.prevent="addVehicle" v-show="showForm">
       <div class="form-element">
