@@ -58,7 +58,7 @@ export default {
   border: 2px solid black;
   border-radius: 10px;
   width: 20vw;
-  height: 60vh;
+  height: 55vh;
   min-width: 275px;
   min-height: 400px;
   background-color: rgba(249, 247, 247, 0.7);
@@ -70,8 +70,8 @@ export default {
 }
 
 #car-image {
-  width: 85%;
-  height: 50%;
+  width: 18vw;
+  height: 25vh;
   padding: 10px;
   object-fit: cover;
 }
@@ -92,5 +92,13 @@ button {
   width: 8rem;
   align-content: center;
   font-size: 1.1rem;
+}
+
+h2{
+  margin: 15px;
+}
+
+h4{
+  margin: 15px;
 }
 </style>
