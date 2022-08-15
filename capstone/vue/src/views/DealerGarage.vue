@@ -23,9 +23,11 @@ export default {
     };
   },
   created() {
-    garageService.getGarage().then((response) => {
-      this.cars = response.data;
-    });
+    garageService
+      .getCustomerGarageById(this.$route.params.id)
+      .then((response) => {
+        this.cars = response.data;
+      });
   },
 };
 </script>
@@ -63,9 +65,6 @@ h1 {
 
 .garage {
   display: flex;
-  flex-direction: row;
-  justify-content: space-evenly;
-  align-items: center;
-  flex-wrap: wrap;
+  justify-content: center;
 }
 </style>

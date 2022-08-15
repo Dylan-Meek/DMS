@@ -47,7 +47,7 @@ public class DealerController {
     }
 
 
-    @GetMapping(path = "/garage/{id}")
+    @GetMapping(path = "/customers/{id}")
     public List<Car> displayUserCars (@PathVariable int id){
         return garageDao.getAllCarsByUserId(id);}
 }

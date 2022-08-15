@@ -18,7 +18,13 @@
             <td>{{ user.username }}</td>
             <td>{{ user.email }}</td>
             <td>
-              <button>Visit Garage</button>
+              <router-link
+                v-bind:to="{
+                  name: 'dealerViewCustomerGarage',
+                  params: { id: user.id },
+                }"
+                ><button>Visit Garage</button></router-link
+              >
             </td>
           </tr>
         </tbody>

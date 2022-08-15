@@ -8,7 +8,7 @@ import Inventory from "@/views/Inventory.vue"
 import store from '../store/index'
 import CustomerGarage from '../views/CustomerGarage.vue'
 import CustomerDirectory from '../views/CustomerDirectory.vue'
-
+import DealerGarage from '../views/DealerGarage.vue'
 
 Vue.use(Router)
 
@@ -80,8 +80,15 @@ const router = new Router({
       meta: {
         requiresAuth: false
       }
-
-    }
+    },
+    {
+      path: '/customers/:id',
+      name: 'dealerViewCustomerGarage',
+      component: DealerGarage,
+      meta: {
+        requiresAuth: false
+      }
+    },
   ]
 })
 
