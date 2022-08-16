@@ -65,6 +65,9 @@ h1 {
 
 .garage {
   display: flex;
-  justify-content: center;
+  flex-direction: row;
+  justify-content: space-evenly;
+  align-items: center;
+  flex-wrap: wrap;
 }
 </style>

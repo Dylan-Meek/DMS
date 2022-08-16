@@ -22,7 +22,7 @@
         <!-- <span>Year:</span> -->
         <input
           class="search"
-          type="text"
+          type="number"
           id="yearFilter"
           v-model="filter.year"
           placeholder="Search Year"
@@ -136,8 +136,8 @@ export default {
         );
       }
       if (this.filter.year != "") {
-        filteredCars = filteredCars.filter((car) =>
-          car.year.toLowerCase().includes(this.filter.year.toLowerCase())
+        filteredCars = filteredCars.filter(
+          (car) => car.year == this.filter.year
         );
       }
       return filteredCars;
