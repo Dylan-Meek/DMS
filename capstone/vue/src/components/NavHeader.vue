@@ -1,27 +1,39 @@
 <template>
   <div id="app">
     <div id="nav">
+       <div id="link-display">
       <router-link v-bind:to="{ name: 'home' }">
         <img id="homeLink" src="@/assets/MotorScape.png" />
       </router-link>
-      <div id="nav-links">
+     <div v-if="$store.state.token !== ''">
+
+      
+     <div id="customer-links"
+        v-if="$store.state.user.authorities[0].name === 'ROLE_USER'">
         <router-link class="navLink" v-bind:to="{ name: 'inventory' }"
           ><h2>Browse</h2>
         </router-link>
 
-        <div id="nav-links" v-if="$store.state.user.name === 'ROLE_USER'">
           <router-link class="navLink" v-bind:to="{ name: 'customerGarage' }"
             ><h2>My Garage</h2>
           </router-link>
-        </div>
 
-        <div id="nav-links" v-if="$store.state.user.name === 'ROLE_ADMIN'">
+      </div>
+      </div>
+
+      <div v-if="$store.state.token !== ''">
+      <div id="dealer-links"
+              v-if="$store.state.user.authorities[0].name === 'ROLE_ADMIN'">
           <router-link class="navLink" v-bind:to="{ name: 'inventory' }"
             ><h2>My Lot</h2>
           </router-link>
-        </div>
-      </div>
 
+        <router-link class="navLink" v-bind:to="{ name: 'customers' }"
+          ><h2>Customer List</h2>
+        </router-link>
+      </div>
+      </div>
+</div>
       <router-link
         v-bind:to="{ name: 'logout' }"
         v-if="$store.state.token != ''"
@@ -42,33 +54,48 @@
 <script>
 </script>
 
-
-
 <style scoped>
+
+*{
+  font-family: "Montserrat", "Helvetica";
+
+}
 div#nav {
   display: flex;
   justify-content: space-between;
-  margin-left: 0%;
-  margin-right: 0%;
   height: 4rem;
   background: #162228;
   border-radius: 5px;
 }
 
-div#nav-links {
+div#link-display{
   display: flex;
-  flex-direction: row;
-  justify-content: left;
-  color: #f9f7f7;
-  font-family: "Montserrat", "Helvetica";
-  width: 75%;
+  justify-items: space-between;
+  width: 750px;
 }
 
-.navLink {
-  display: block;
+div#customer-links{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  color: #f9f7f7;
+  width: 100%;
+}
+
+div#dealer-links{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  color: #f9f7f7;
+  width: 100%;
+}
+
+a.navLink {
+  display: flex;
+  justify-content: right;
   color: #f9f7f7;
   text-decoration: none;
-  padding-right: 2%;
+  width: 13vw;
 }
 
 #homeLink {

@@ -34,7 +34,7 @@ button {
 body {
   background-image: url("~@/assets/Background.jpg");
   background-size: cover;
-  overflow: hidden;
+  overflow-x: hidden;
   background-position: 50% 20%;
   background-repeat: no-repeat;
   background-attachment: fixed;
