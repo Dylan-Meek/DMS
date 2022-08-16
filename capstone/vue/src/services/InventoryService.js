@@ -15,4 +15,8 @@ export default {
         return axios.put('/inventory', car);
     }
 
+    // updateVehicle(car) {
+    //   return axios.put('/inventory', car);
+    //}
+
 }

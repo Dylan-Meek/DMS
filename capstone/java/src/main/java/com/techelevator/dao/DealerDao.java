@@ -13,4 +13,6 @@ public interface DealerDao {
 
     Car purchaseVehicle(Car car, int userId);
 
+    Car updateCar(Car car);
+
 }

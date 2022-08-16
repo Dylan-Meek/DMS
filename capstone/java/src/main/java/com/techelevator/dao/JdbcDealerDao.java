@@ -60,6 +60,20 @@ public class JdbcDealerDao implements DealerDao{
         return updatedCar;
     }
 
+   public Car updateCar(Car car) {
+       String sqlUpdateVehiclesAsDealer = "UPDATE car SET make = ?, model = ?, year = ?, mileage = ?, engine = ?, price = ?, photo = ?, input_id = ?" +
+               " WHERE vin = ?";
+             jdbcTemplate.update(sqlUpdateVehiclesAsDealer, car.getMake(), car.getModel(), car.getYear(), car.getMileage(), car.getEngine(), car.getPrice(), car.getPhoto(), car.getInputId(), car.getVin());
+       String sqlUpdateCar = "SELECT vin, make, model, year, mileage, engine, input_id, price, photo, notes, is_for_sale" +
+               " FROM car WHERE vin = ?";
+       Car updateCar = new Car();
+       SqlRowSet sqlRowSet = jdbcTemplate.queryForRowSet(sqlUpdateCar, car.getVin());
+       if(sqlRowSet.next()) {
+           updateCar = mapRowToCar(sqlRowSet);
+       }
+       return updateCar;
+   }
+
     private Car mapRowToCar(SqlRowSet carRowSet){
         Car car = new Car();
         car.setVin(carRowSet.getString("vin"));
