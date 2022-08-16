@@ -30,6 +30,7 @@ export default {
 button {
   color: #162228;
   background-color: #ffde32;
+  font-weight: bold;
   border-radius: 5px;
   width: 120%;
   align-content: center;

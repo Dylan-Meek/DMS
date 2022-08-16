@@ -65,7 +65,7 @@ export default {
   font-family: "Montserrat", "Helvetica";
 }
 #tblUsers {
-  background-color: rgba(249, 247, 247, 0.7);
+  background-color: rgba(249, 247, 247, 0.9);
   padding: 2rem;
   font-size: 1.5rem;
   border-radius: 10px;

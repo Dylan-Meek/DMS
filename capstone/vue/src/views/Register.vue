@@ -32,6 +32,35 @@
         v-model="user.confirmPassword"
         required
       />
+      <label for="firstName">First Name</label>
+      <input
+        type="text"
+        id="firstName"
+        class="form-control"
+        placeholder="First Name"
+        v-model="user.firstName"
+        required
+      />
+
+      <label for="lastName">Last Name</label>
+      <input
+        type="text"
+        id="lastName"
+        class="form-control"
+        placeholder="Last Name"
+        v-model="user.lastName"
+        required
+      />
+      <label for="email">Email</label>
+      <input
+        type="text"
+        id="emailAddress"
+        class="form-control"
+        placeholder="Email"
+        v-model="user.email"
+        required
+      />
+
       <button class="btn btn-lg btn-primary btn-block" type="submit">
         Create Account
       </button>
@@ -54,6 +83,9 @@ export default {
         username: "",
         password: "",
         confirmPassword: "",
+        firstName: "",
+        lastName: "",
+        email: "",
         role: "user",
       },
       registrationErrors: false,
@@ -111,7 +143,7 @@ form {
   margin-left: 35%;
   margin-right: 35%;
   margin-top: 5%;
-  background-color: rgba(22, 34, 40, 0.4);
+  background-color: rgba(22, 34, 40, 0.85);
   color: #f9f7f7;
   border-radius: 40px;
 }
@@ -140,7 +172,8 @@ h1 {
   margin-left: auto;
   margin-right: auto;
   color: #f9f7f7;
-  font-size: 0.7rem;
+  font-size: 0.9rem;
+  font-weight: bold;
 }
 
 button {
@@ -149,6 +182,7 @@ button {
   color: #162228;
   background-color: #ffde32;
   border-radius: 5px;
+  font-weight: bold;
   width: 40%;
   align-content: center;
   font-size: 0.9rem;
@@ -168,5 +202,8 @@ button {
   margin-left: auto;
   margin-right: auto;
   padding-bottom: 10px;
+}
+label {
+  font-weight: bold;
 }
 </style>

@@ -32,6 +32,7 @@
     <!-- <div id="button"> -->
     <div v-if="$store.state.token !== ''">
       <button
+        id="addVehicleButton"
         v-if="$store.state.user.authorities[0].name === 'ROLE_ADMIN'"
         href="#"
         v-on:click="showForm = true"
@@ -172,7 +173,7 @@ export default {
 
 h1 {
   font-family: "Montserrat", "Helvetica";
-  color: #f9f7f7;
+  color: #162228;
 }
 
 .inventory {
@@ -210,13 +211,15 @@ h1 {
 button {
   margin-left: 45%;
   margin-bottom: 2%;
+  font-weight: bold;
 }
 
 #form {
   display: flex;
   flex-direction: column;
   align-items: center;
-  background-color: rgba(249, 247, 247, 0.7);
+  background-color: rgba(249, 247, 247, 0.85);
+  font-weight: bold;
   margin-left: 30%;
   margin-right: 30%;
   margin-bottom: 2%;
@@ -254,6 +257,7 @@ form > input[type="button"] {
   margin-right: auto;
   color: #162228;
   background-color: #f9f7f7;
+  font-weight: bold;
   border-radius: 5px;
   width: 25%;
   align-content: center;
@@ -266,11 +270,16 @@ form > input[type="submit"] {
   margin-right: auto;
   color: #162228;
   background-color: #ffde32;
+  font-weight: bold;
   border-radius: 5px;
   width: 25%;
   align-content: center;
   font-size: 0.9rem;
   margin-top: 2vh;
   margin-bottom: 2vh;
+}
+
+#rating {
+  height: 1.4rem;
 }
 </style>

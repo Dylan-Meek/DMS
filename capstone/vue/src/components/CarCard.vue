@@ -39,8 +39,7 @@ export default {
     },
     purchase() {
       inventoryService.purchaseVehicle(this.car, this.$store.state.user);
-        setTimeout(()=>
-      this.$router.push({path: "/garage"}), 50);
+      setTimeout(() => this.$router.push({ path: "/garage" }), 50);
     },
   },
 };
@@ -61,7 +60,7 @@ export default {
   height: 55vh;
   min-width: 275px;
   min-height: 400px;
-  background-color: rgba(249, 247, 247, 0.7);
+  background-color: rgba(249, 247, 247, 0.9);
   justify-content: flex-start;
   align-items: center;
   flex-direction: column;
@@ -87,6 +86,7 @@ button {
   margin-left: auto;
   margin-right: auto;
   color: #162228;
+  font-weight: bold;
   background-color: #ffde32;
   border-radius: 5px;
   width: 8rem;
@@ -94,11 +94,11 @@ button {
   font-size: 1.1rem;
 }
 
-h2{
+h2 {
   margin: 15px;
 }
 
-h4{
+h4 {
   margin: 15px;
 }
 </style>

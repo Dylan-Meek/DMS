@@ -103,7 +103,7 @@ form {
   margin-left: 35%;
   margin-right: 35%;
   margin-top: 5%;
-  background-color: rgba(22, 34, 40, 0.4);
+  background-color: rgba(22, 34, 40, 0.85);
   color: #f9f7f7;
   border-radius: 40px;
 }
@@ -119,6 +119,7 @@ label {
   margin-left: 20%;
   margin-right: 20%;
   color: #f9f7f7;
+  font-weight: bold;
 }
 
 h1 {
@@ -132,7 +133,8 @@ h1 {
   margin-left: auto;
   margin-right: auto;
   color: #f9f7f7;
-  font-size: 0.7rem;
+  font-size: 0.85rem;
+  font-weight: bold;
 }
 
 button {
@@ -140,8 +142,9 @@ button {
   margin-right: auto;
   color: #162228;
   background-color: #ffde32;
+  font-weight: bold;
   border-radius: 5px;
-  width: 25%;
+  width: 30%;
   align-content: center;
   font-size: 0.9rem;
 }
