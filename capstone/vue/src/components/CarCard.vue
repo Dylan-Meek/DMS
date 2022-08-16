@@ -16,6 +16,17 @@
           Purchase
         </button>
       </div>
+      <div v-if="$store.state.token !== ''">
+        <button
+          v-on:click="update"
+          v-if="
+            car.forSale === true &&
+            $store.state.user.authorities[0].name === 'ROLE_ADMIN'
+          "
+        >
+          Update
+        </button>
+      </div>
     </div>
   </div>
 </template>
@@ -41,6 +52,7 @@ export default {
       inventoryService.purchaseVehicle(this.car, this.$store.state.user);
       setTimeout(() => this.$router.push({ path: "/garage" }), 50);
     },
+    update() {},
   },
 };
 </script>
