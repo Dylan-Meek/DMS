@@ -2,9 +2,15 @@
   <div class="home">
     <div id="homeCenter">
       <img id="MainLogo" src="@/assets/MotorScape.png" alt="" />
-      <router-link :to="{ name: 'login' }"
-        ><button id="LoginButton">Login</button></router-link
-      >
+
+      <div id="buttonRow">
+        <router-link :to="{ name: 'login' }"
+          ><button id="LoginButton">Login</button></router-link
+        >
+        <router-link :to="{ name: 'inventory' }"
+          ><button id="BrowseButton">Browse Cars</button></router-link
+        >
+      </div>
     </div>
   </div>
 </template>
@@ -34,7 +40,18 @@ button {
   border-radius: 5px;
   width: 120%;
   align-content: center;
-  font-size: 0.9rem;
+  font-size: 1.3rem;
+  margin-top: 20%;
+}
+
+#BrowseButton {
+  background-color: #162228;
+  color: #f9f7f7;
+  font-weight: bold;
+  border-radius: 5px;
+  width: 120%;
+  align-content: center;
+  font-size: 1.3rem;
   margin-top: 20%;
 }
 

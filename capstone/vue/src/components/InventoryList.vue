@@ -43,6 +43,7 @@
     </div>
     <!-- </div> -->
     <form id="form" v-on:submit.prevent="addVehicle" v-show="showForm">
+      <h2 id="addVehicleTitle">Add Vehicle</h2>
       <div class="form-element">
         <label for="vin">Vin:</label>
         <input id="vin" type="text" v-model.trim="newVehicle.vin" />

@@ -1,38 +1,52 @@
 <template>
   <div class="card">
-    <img id="car-image" v-bind:src="`${car.photo}`" />
-    <div class="flex-car">
-      <h2>{{ car.year + " " + car.make + " " + car.model }}</h2>
-      <h4>{{ "$" + car.price }}</h4>
-      <h4>{{ car.mileage + " Miles" }}</h4>
-      <div v-if="$store.state.token !== ''">
-        <button
-          v-on:click="purchase"
-          v-if="
-            car.forSale === true &&
-            $store.state.user.authorities[0].name === 'ROLE_USER'
-          "
-        >
-          Purchase
-        </button>
-      </div>
-      <div v-if="$store.state.token !== ''">
-        <button
-          v-on:click="update"
-          v-if="
-            car.forSale === true &&
-            $store.state.user.authorities[0].name === 'ROLE_ADMIN'
-          "
-        >
-          Update
-        </button>
-      </div>
+    <tiny-slider
+      :mouse-drag="true"
+      :controls="false"
+      :loop="false"
+      :nav="false"
+      items="1"
+      gutter="2"
+    >
+      <div><img id="car-image" v-bind:src="`${car.photo}`" /></div>
+      <div></div>
+      <div></div>
+      <div></div>
+    </tiny-slider>
+
+    <!-- <img id="car-image" v-bind:src="`${car.photo}`"/>
+    <div class="flex-car"> -->
+    <h2>{{ car.year + " " + car.make + " " + car.model }}</h2>
+    <h4>{{ "$" + car.price }}</h4>
+    <h4>{{ car.mileage + " Miles" }}</h4>
+    <div v-if="$store.state.token !== ''">
+      <button
+        v-on:click="purchase"
+        v-if="
+          car.forSale === true &&
+          $store.state.user.authorities[0].name === 'ROLE_USER'
+        "
+      >
+        Purchase
+      </button>
+    </div>
+    <div v-if="$store.state.token !== ''">
+      <button
+        v-on:click="update"
+        v-if="
+          car.forSale === true &&
+          $store.state.user.authorities[0].name === 'ROLE_ADMIN'
+        "
+      >
+        Update
+      </button>
     </div>
   </div>
 </template>
 
 <script>
 import inventoryService from "@/services/InventoryService";
+import VueTinySlider from "vue-tiny-slider";
 
 export default {
   name: "car-card",
@@ -53,6 +67,9 @@ export default {
       setTimeout(() => this.$router.push({ path: "/garage" }), 50);
     },
     update() {},
+  },
+  components: {
+    "tiny-slider": VueTinySlider,
   },
 };
 </script>
@@ -78,6 +95,7 @@ export default {
   flex-direction: column;
   font-family: "Montserrat", "Helvetica";
   margin-bottom: 50px;
+  overflow: hidden;
 }
 
 #car-image {
