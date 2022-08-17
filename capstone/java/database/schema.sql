@@ -31,7 +31,9 @@ CREATE TABLE car (
 	input_id int NOT NULL,
 	price decimal (13,2) NOT NULL,
 	photo varchar(2000) NOT NULL,
-	notes varchar(500) NOT NULL,
+	photo_2 varchar(2000),
+	photo_3 varchar(2000),
+	photo_4 varchar(2000),
 	is_for_sale boolean NOT NULL DEFAULT true,
 	CONSTRAINT PK_car PRIMARY KEY (vin),
 	CONSTRAINT FK_input_id FOREIGN KEY (input_id) REFERENCES inputs (input_id)

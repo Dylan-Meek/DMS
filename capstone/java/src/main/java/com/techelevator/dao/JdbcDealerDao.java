@@ -21,7 +21,7 @@ public class JdbcDealerDao implements DealerDao{
     @Override
     public List<Car> getInventory(){
         List<Car> inventory = new ArrayList<>();
-        String sql = "SELECT vin, make, model, year, mileage, engine, input_id, price, photo, notes, is_for_sale" +
+        String sql = "SELECT vin, make, model, year, mileage, engine, input_id, price, photo, photo_2, photo_3, photo_4, is_for_sale" +
                 " FROM car WHERE is_for_sale = ?;";
         SqlRowSet carRowSet = jdbcTemplate.queryForRowSet(sql, true);
 
@@ -34,9 +34,9 @@ public class JdbcDealerDao implements DealerDao{
 
     @Override
     public boolean addVehicle(Car car){
-        String sql = "INSERT INTO car (vin, make, model, year, mileage, engine, input_id, price, photo, notes)" +
+        String sql = "INSERT INTO car (vin, make, model, year, mileage, engine, input_id, price, photo, photo_2, photo_3, photo_4)" +
                 " VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?);";
-        jdbcTemplate.update(sql, car.getVin(), car.getMake(), car.getModel(), car.getYear(), car.getMileage(), car.getEngine(), car.getInputId(), car.getPrice(),car.getPhoto(), car.getNotes());
+        jdbcTemplate.update(sql, car.getVin(), car.getMake(), car.getModel(), car.getYear(), car.getMileage(), car.getEngine(), car.getInputId(), car.getPrice(),car.getPhoto(), car.getPhoto2(), car.getPhoto3(), car.getPhoto4());
 
         return true;
     }
@@ -50,7 +50,7 @@ public class JdbcDealerDao implements DealerDao{
                 " VALUES (?, ?)";
         jdbcTemplate.update(updateGarage, car.getVin(), userId);
 
-        String sqlUpdatedCar = "SELECT vin, make, model, year, mileage, engine, input_id, price, photo, notes, is_for_sale" +
+        String sqlUpdatedCar = "SELECT vin, make, model, year, mileage, engine, input_id, price, photo, photo_2, photo_3, photo_4, is_for_sale" +
                 " FROM car WHERE vin = ?";
         Car updatedCar = new Car();
         SqlRowSet sqlRowSet = jdbcTemplate.queryForRowSet(sqlUpdatedCar, car.getVin());
@@ -61,10 +61,10 @@ public class JdbcDealerDao implements DealerDao{
     }
 
    public Car updateCar(Car car) {
-       String sqlUpdateVehiclesAsDealer = "UPDATE car SET make = ?, model = ?, year = ?, mileage = ?, engine = ?, price = ?, photo = ?, input_id = ?" +
+       String sqlUpdateVehiclesAsDealer = "UPDATE car SET make = ?, model = ?, year = ?, mileage = ?, engine = ?, price = ?, photo = ?, photo_2 = ?, photo_3 =?, photo_4 = ?, input_id = ?" +
                " WHERE vin = ?";
-             jdbcTemplate.update(sqlUpdateVehiclesAsDealer, car.getMake(), car.getModel(), car.getYear(), car.getMileage(), car.getEngine(), car.getPrice(), car.getPhoto(), car.getInputId(), car.getVin());
-       String sqlUpdateCar = "SELECT vin, make, model, year, mileage, engine, input_id, price, photo, notes, is_for_sale" +
+             jdbcTemplate.update(sqlUpdateVehiclesAsDealer, car.getMake(), car.getModel(), car.getYear(), car.getMileage(), car.getEngine(), car.getPrice(), car.getPhoto(), car.getPhoto2(), car.getPhoto3(), car.getPhoto4(), car.getInputId(), car.getVin());
+       String sqlUpdateCar = "SELECT vin, make, model, year, mileage, engine, input_id, price, photo, photo_2, photo_3, photo_4, is_for_sale" +
                " FROM car WHERE vin = ?";
        Car updateCar = new Car();
        SqlRowSet sqlRowSet = jdbcTemplate.queryForRowSet(sqlUpdateCar, car.getVin());
@@ -81,11 +81,13 @@ public class JdbcDealerDao implements DealerDao{
         car.setModel(carRowSet.getString("model"));
         car.setEngine(carRowSet.getString("engine"));
         car.setPhoto(carRowSet.getString("photo"));
+        car.setPhoto2(carRowSet.getString("photo_2"));
+        car.setPhoto3(carRowSet.getString("photo_3"));
+        car.setPhoto4(carRowSet.getString("photo_4"));
         car.setPrice(carRowSet.getDouble("price"));
         car.setYear(carRowSet.getInt("year"));
         car.setMileage(carRowSet.getInt("mileage"));
         car.setInputId(carRowSet.getInt("input_id"));
-        car.setNotes(carRowSet.getString("notes"));
         car.setForSale(carRowSet.getBoolean("is_for_sale"));
 
         return car;
