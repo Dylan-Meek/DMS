@@ -61,6 +61,7 @@ h1 {
 h1 {
   margin-left: auto;
   margin-right: auto;
+  color: #162228;
 }
 
 .garage {

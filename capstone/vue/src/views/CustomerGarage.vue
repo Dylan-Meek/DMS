@@ -38,7 +38,7 @@ export default {
 
 h1 {
   font-family: "Montserrat", "Helvetica";
-  color: #f9f7f7;
+  color: #162228;
 }
 
 .inventory {
