@@ -9,5 +9,9 @@ export default {
 
     getCustomerGarageById(id) {
         return axios.get(`/customers/${id}`);
+    },
+
+    getCustomerById(id) {
+        return axios.get(`/user/${id}`);
     }
 }

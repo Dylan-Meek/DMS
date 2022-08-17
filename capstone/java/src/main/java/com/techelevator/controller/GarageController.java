@@ -4,6 +4,7 @@ import com.techelevator.dao.DealerDao;
 import com.techelevator.dao.GarageDao;
 import com.techelevator.dao.UserDao;
 import com.techelevator.model.Car;
+import com.techelevator.model.User;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -29,4 +30,10 @@ import java.util.List;
             return garageDao.getAllCarsByUserId
                     (userDao.findIdByUsername(principal.getName()));
         }
+
+        @GetMapping(path="/user/{id}")
+        public User getUserById(@PathVariable int id){
+            return userDao.getUserById(id);
+        }
+
     }

@@ -5,6 +5,4 @@ export default {
     getCustomers() {
         return axios.get('/customers');
     },
-
-    getCustomersNameById
 }
