@@ -1,7 +1,7 @@
 <template>
   <div>
     <div class="title">
-      <h1>My Garage</h1>
+      <h1>{{ user.firstName }}'s Garage</h1>
     </div>
     <div class="garage">
       <car-card v-for="car in cars" v-bind:key="car.vin" :car="car"> </car-card>
@@ -20,6 +20,7 @@ export default {
   data() {
     return {
       cars: [],
+      user: {},
     };
   },
   created() {
@@ -28,6 +29,9 @@ export default {
       .then((response) => {
         this.cars = response.data;
       });
+    garageService.getCustomerById(this.$route.params.id).then((response) => {
+      this.user = response.data;
+    });
   },
 };
 </script>
@@ -61,6 +65,7 @@ h1 {
 h1 {
   margin-left: auto;
   margin-right: auto;
+  color: #162228;
 }
 
 .garage {

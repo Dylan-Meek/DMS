@@ -1,44 +1,81 @@
 <template>
   <div class="card">
-    <img id="car-image" v-bind:src="`${car.photo}`" />
-    <div class="flex-car">
-      <h2>{{ car.year + " " + car.make + " " + car.model }}</h2>
-      <h4>{{ "$" + car.price }}</h4>
-      <h4>{{ car.mileage + " Miles" }}</h4>
-      <div v-if="$store.state.token !== ''">
+    <tiny-slider
+      :mouse-drag="true"
+      :controls="false"
+      :loop="false"
+      :nav="false"
+      items="1"
+      gutter="1"
+    >
+      <div>
+        <img
+          id="car-image"
+          v-bind:src="`${car.photo}`"
+          alt="No additional photos"
+        />
+      </div>
+
+      <div>
+        <img
+          id="car-image"
+          v-bind:src="`${car.photo2}`"
+          alt="No additional photos"
+        />
+      </div>
+      <div>
+        <img
+          id="car-image"
+          v-bind:src="`${car.photo3}`"
+          alt="No additional photos"
+        />
+      </div>
+      <div>
+        <img
+          id="car-image"
+          v-bind:src="`${car.photo4}`"
+          alt="No additional photos"
+        />
+      </div>
+    </tiny-slider>
+
+    <h2>{{ car.year + " " + car.make + " " + car.model }}</h2>
+    <h4>{{ "$" + car.price }}</h4>
+    <h4>{{ car.mileage + " Miles" }}</h4>
+    <div v-if="$store.state.token !== ''">
+      <button
+        v-on:click="purchase"
+        v-if="
+          car.forSale === true &&
+          $store.state.user.authorities[0].name === 'ROLE_USER'
+        "
+      >
+        Purchase
+      </button>
+    </div>
+    <div v-if="$store.state.token !== ''">
+      <router-link
+        v-bind:to="{
+          name: 'Update',
+          params: { vin: car.vin },
+        }"
+      >
         <button
-          v-on:click="purchase"
           v-if="
             car.forSale === true &&
-            $store.state.user.authorities[0].name === 'ROLE_USER'
+            $store.state.user.authorities[0].name === 'ROLE_ADMIN'
           "
         >
-          Purchase
+          Update
         </button>
-      </div>
-      <div v-if="$store.state.token !== ''">
-        <router-link
-          v-bind:to="{
-            name: 'Update',
-            params: { vin: car.vin },
-          }"
-        >
-          <button
-            v-if="
-              car.forSale === true &&
-              $store.state.user.authorities[0].name === 'ROLE_ADMIN'
-            "
-          >
-            Update
-          </button>
-        </router-link>
-      </div>
+      </router-link>
     </div>
   </div>
 </template>
 
 <script>
 import inventoryService from "@/services/InventoryService";
+import VueTinySlider from "vue-tiny-slider";
 
 export default {
   name: "car-card",
@@ -71,6 +108,9 @@ export default {
       setTimeout(() => this.$router.push({ path: "/garage" }), 50);
     },
   },
+  components: {
+    "tiny-slider": VueTinySlider,
+  },
 };
 </script>
 
@@ -81,12 +121,15 @@ export default {
   font-family: "Montserrat", "Helvetica";
 }
 
+alt {
+  text-align: center;
+}
 .card {
   display: flex;
   border: 2px solid black;
   border-radius: 10px;
   width: 20vw;
-  height: 55vh;
+  height: 60vh;
   min-width: 275px;
   min-height: 400px;
   background-color: rgba(249, 247, 247, 0.9);
@@ -95,6 +138,11 @@ export default {
   flex-direction: column;
   font-family: "Montserrat", "Helvetica";
   margin-bottom: 50px;
+  overflow: hidden;
+}
+img {
+  text-align: center;
+  justify-content: center;
 }
 
 #car-image {
@@ -129,5 +177,9 @@ h2 {
 
 h4 {
   margin: 15px;
+}
+
+div.tns-item {
+  text-align: center;
 }
 </style>

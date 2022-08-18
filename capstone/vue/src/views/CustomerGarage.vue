@@ -1,7 +1,7 @@
 <template>
   <div>
     <div class="title">
-      <h1>My Garage</h1>
+      <h1>{{ $store.state.user.firstName }}'s Garage</h1>
     </div>
     <div class="garage">
       <car-card v-for="car in cars" v-bind:key="car.vin" :car="car"> </car-card>
@@ -38,7 +38,7 @@ export default {
 
 h1 {
   font-family: "Montserrat", "Helvetica";
-  color: #f9f7f7;
+  color: #162228;
 }
 
 .inventory {
