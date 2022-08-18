@@ -35,7 +35,7 @@ public class JdbcDealerDao implements DealerDao{
     @Override
     public boolean addVehicle(Car car){
         String sql = "INSERT INTO car (vin, make, model, year, mileage, engine, input_id, price, photo, photo_2, photo_3, photo_4)" +
-                " VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?);";
+                " VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?);";
         jdbcTemplate.update(sql, car.getVin(), car.getMake(), car.getModel(), car.getYear(), car.getMileage(), car.getEngine(), car.getInputId(), car.getPrice(),car.getPhoto(), car.getPhoto2(), car.getPhoto3(), car.getPhoto4());
 
         return true;
