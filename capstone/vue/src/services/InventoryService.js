@@ -13,10 +13,10 @@ export default {
 
     purchaseVehicle(car) {
         return axios.put('/inventory', car);
-    }
+    },
 
-    // updateVehicle(car) {
-    //   return axios.put('/inventory', car);
-    //}
+    updateVehicle(car) {
+      return axios.put('/inventory', car);
+    }
 
 }

@@ -9,6 +9,7 @@ import store from '../store/index'
 import CustomerGarage from '../views/CustomerGarage.vue'
 import CustomerDirectory from '../views/CustomerDirectory.vue'
 import DealerGarage from '../views/DealerGarage.vue'
+import Update from '../views/Update'
 
 Vue.use(Router)
 
@@ -22,87 +23,95 @@ Vue.use(Router)
  */
 
 const router = new Router({
-  mode: 'history',
-  base: process.env.BASE_URL,
-  routes: [
-    {
-      path: '/',
-      name: 'home',
-      component: Home,
-      meta: {
-        requiresAuth: false //Changed to false to test some stuff, it was true
-      }
-    },
-    {
-      path: "/login",
-      name: "login",
-      component: Login,
-      meta: {
-        requiresAuth: false
-      }
-    },
-    {
-      path: "/logout",
-      name: "logout",
-      component: Logout,
-      meta: {
-        requiresAuth: false
-      }
-    },
-    {
-      path: "/register",
-      name: "register",
-      component: Register,
-      meta: {
-        requiresAuth: false
-      }
-    },
-    {
-      path: "/inventory",
-      name: "inventory",
-      component: Inventory,
-      meta: {
-        requiresAuth: false
-      }
-    },
-    {
-      path: "/garage",
-      name: "customerGarage",
-      component: CustomerGarage,
-      meta: {
-        requiresAuth: false   // This was originally true.
-      }
-    },
-    {
-      path: "/customers",
-      name: "customers",
-      component: CustomerDirectory,
-      meta: {
-        requiresAuth: false
-      }
-    },
-    {
-      path: '/customers/:id',
-      name: 'dealerViewCustomerGarage',
-      component: DealerGarage,
-      meta: {
-        requiresAuth: false
-      }
-    },
-  ]
+    mode: 'history',
+    base: process.env.BASE_URL,
+    routes: [
+        {
+            path: '/',
+            name: 'home',
+            component: Home,
+            meta: {
+                requiresAuth: false //Changed to false to test some stuff, it was true
+            }
+        },
+        {
+            path: "/login",
+            name: "login",
+            component: Login,
+            meta: {
+                requiresAuth: false
+            }
+        },
+        {
+            path: "/logout",
+            name: "logout",
+            component: Logout,
+            meta: {
+                requiresAuth: false
+            }
+        },
+        {
+            path: "/register",
+            name: "register",
+            component: Register,
+            meta: {
+                requiresAuth: false
+            }
+        },
+        {
+            path: "/inventory",
+            name: "inventory",
+            component: Inventory,
+            meta: {
+                requiresAuth: false
+            }
+        },
+        {
+            path: '/inventory/:vin',
+            name: "Update",
+            component: Update,
+            meta: {
+                requiresAuth: false
+            }
+        },
+        {
+            path: "/garage",
+            name: "customerGarage",
+            component: CustomerGarage,
+            meta: {
+                requiresAuth: false   // This was originally true.
+            }
+        },
+        {
+            path: "/customers",
+            name: "customers",
+            component: CustomerDirectory,
+            meta: {
+                requiresAuth: false
+            }
+        },
+        {
+            path: '/customers/:id',
+            name: 'dealerViewCustomerGarage',
+            component: DealerGarage,
+            meta: {
+                requiresAuth: false
+            }
+        },
+    ]
 })
 
 router.beforeEach((to, from, next) => {
-  // Determine if the route requires Authentication
-  const requiresAuth = to.matched.some(x => x.meta.requiresAuth);
+    // Determine if the route requires Authentication
+    const requiresAuth = to.matched.some(x => x.meta.requiresAuth);
 
-  // If it does and they are not logged in, send the user to "/login"
-  if (requiresAuth && store.state.token === '') {
-    next("/login");
-  } else {
-    // Else let them go to their next destination
-    next();
-  }
+    // If it does and they are not logged in, send the user to "/login"
+    if (requiresAuth && store.state.token === '') {
+        next("/login");
+    } else {
+        // Else let them go to their next destination
+        next();
+    }
 });
 
 export default router;

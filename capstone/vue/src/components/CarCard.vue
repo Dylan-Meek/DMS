@@ -17,15 +17,21 @@
         </button>
       </div>
       <div v-if="$store.state.token !== ''">
-        <button
-          v-on:click="update"
-          v-if="
-            car.forSale === true &&
-            $store.state.user.authorities[0].name === 'ROLE_ADMIN'
-          "
+        <router-link
+          v-bind:to="{
+            name: 'Update',
+            params: { vin: car.vin },
+          }"
         >
-          Update
-        </button>
+          <button
+            v-if="
+              car.forSale === true &&
+              $store.state.user.authorities[0].name === 'ROLE_ADMIN'
+            "
+          >
+            Update
+          </button>
+        </router-link>
       </div>
     </div>
   </div>
@@ -37,6 +43,18 @@ import inventoryService from "@/services/InventoryService";
 export default {
   name: "car-card",
   props: ["car"],
+  data() {
+    return {
+      showForm: false,
+      newVehicle: {},
+      cars: [],
+      filter: {
+        make: "",
+        model: "",
+        year: "",
+      },
+    };
+  },
 
   methods: {
     determineStatus() {
@@ -52,7 +70,6 @@ export default {
       inventoryService.purchaseVehicle(this.car, this.$store.state.user);
       setTimeout(() => this.$router.push({ path: "/garage" }), 50);
     },
-    update() {},
   },
 };
 </script>
