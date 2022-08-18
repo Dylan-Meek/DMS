@@ -15,4 +15,6 @@ public interface DealerDao {
 
     Car updateCar(Car car);
 
+    Car getCarByVin(String vin);
+
 }

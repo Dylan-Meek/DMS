@@ -85,8 +85,16 @@
         <input id="photo" type="text" v-model.trim="newVehicle.photo" />
       </div>
       <div class="form-element">
-        <label for="notes">Notes:</label>
-        <input id="notes" type="text" v-model.trim="newVehicle.notes" />
+        <label for="photo">Photo 2 URL:</label>
+        <input id="photo" type="text" v-model.trim="newVehicle.photo2" />
+      </div>
+      <div class="form-element">
+        <label for="photo">Photo 3 URL:</label>
+        <input id="photo" type="text" v-model.trim="newVehicle.photo3" />
+      </div>
+      <div class="form-element">
+        <label for="photo">Photo 4 URL:</label>
+        <input id="photo" type="text" v-model.trim="newVehicle.photo4" />
       </div>
       <input type="submit" value="Add" />
       <input type="button" value="Cancel" v-on:click="resetForm" />

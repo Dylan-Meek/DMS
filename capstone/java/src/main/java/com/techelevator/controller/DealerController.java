@@ -45,6 +45,11 @@ public class DealerController {
     public Car updateVehicle(@RequestBody Car car) {
         return dealerDao.updateCar(car);
     }
+
+    @GetMapping(path = "/inventory/{vin}")
+    public Car getCarByVin(@PathVariable String vin) {
+        return dealerDao.getCarByVin(vin);
+    }
     
     @GetMapping(path = "/customers")
     public List<User> displayCustomers() {

@@ -16,7 +16,11 @@ export default {
     },
 
     updateVehicle(car) {
-      return axios.put('/inventory', car);
+        return axios.put('/inventory', car);
+    },
+
+    getVehicleById(vin) {
+        return axios.get(`/inventory/${vin}`)
     }
 
 }

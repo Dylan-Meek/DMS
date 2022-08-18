@@ -9,7 +9,6 @@ import store from '../store/index'
 import CustomerGarage from '../views/CustomerGarage.vue'
 import CustomerDirectory from '../views/CustomerDirectory.vue'
 import DealerGarage from '../views/DealerGarage.vue'
-import Update from '../views/Update'
 
 Vue.use(Router)
 
@@ -66,14 +65,7 @@ const router = new Router({
                 requiresAuth: false
             }
         },
-        {
-            path: '/inventory/:vin',
-            name: "Update",
-            component: Update,
-            meta: {
-                requiresAuth: false
-            }
-        },
+
         {
             path: "/garage",
             name: "customerGarage",

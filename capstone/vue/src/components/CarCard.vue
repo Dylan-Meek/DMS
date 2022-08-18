@@ -53,23 +53,6 @@
         Purchase
       </button>
     </div>
-    <div v-if="$store.state.token !== ''">
-      <router-link
-        v-bind:to="{
-          name: 'Update',
-          params: { vin: car.vin },
-        }"
-      >
-        <button
-          v-if="
-            car.forSale === true &&
-            $store.state.user.authorities[0].name === 'ROLE_ADMIN'
-          "
-        >
-          Update
-        </button>
-      </router-link>
-    </div>
   </div>
 </template>
 
