@@ -1,8 +1,13 @@
 BEGIN TRANSACTION;
 
-INSERT INTO users (username, first_name, last_name, email, password_hash,role) VALUES ('user', 'user1', 'user1', 'user1@test.com', '$2a$08$UkVvwpULis18S19S5pZFn.YHPZt3oaqHZnDwqbCW9pft6uFtkXKDC','ROLE_USER');
-INSERT INTO users (username, first_name, last_name, email, password_hash,role) VALUES ('admin', 'admin1', 'admin1', 'admin1@yahoo.com','$2a$08$UkVvwpULis18S19S5pZFn.YHPZt3oaqHZnDwqbCW9pft6uFtkXKDC','ROLE_ADMIN');
-INSERT INTO users (username, first_name, last_name, email, password_hash,role) VALUES ('carly', 'carly', 'trimboli', 'carly@test.com','$2a$10$dmIVOYNpMh49MoP5DWG37Oy2BlCBoYxgw1f9o06cLxJEwkz1qaR06','ROLE_USER');
+INSERT INTO users (username, first_name, last_name, email, password_hash,role) VALUES ('zack', 'Zack', 'Raney', 'zack@test.com', '$2a$08$UkVvwpULis18S19S5pZFn.YHPZt3oaqHZnDwqbCW9pft6uFtkXKDC','ROLE_USER');
+INSERT INTO users (username, first_name, last_name, email, password_hash,role) VALUES ('admin', 'Admin1', 'Admin1', 'admin1@yahoo.com','$2a$08$UkVvwpULis18S19S5pZFn.YHPZt3oaqHZnDwqbCW9pft6uFtkXKDC','ROLE_ADMIN');
+INSERT INTO users (username, first_name, last_name, email, password_hash,role) VALUES ('carly', 'Carly', 'Trimboli', 'carly@test.com','$2a$10$dmIVOYNpMh49MoP5DWG37Oy2BlCBoYxgw1f9o06cLxJEwkz1qaR06','ROLE_USER');
+INSERT INTO users (username, first_name, last_name, email, password_hash,role) VALUES ('jeremy', 'Jeremy', 'Falk', 'jeremy@gmail.com','$2a$08$UkVvwpULis18S19S5pZFn.YHPZt3oaqHZnDwqbCW9pft6uFtkXKDC','ROLE_USER');
+INSERT INTO users (username, first_name, last_name, email, password_hash,role) VALUES ('dylan', 'Dylan', 'Meek', 'dylan@google.com','$2a$08$UkVvwpULis18S19S5pZFn.YHPZt3oaqHZnDwqbCW9pft6uFtkXKDC','ROLE_USER');
+INSERT INTO users (username, first_name, last_name, email, password_hash,role) VALUES ('randy', 'Randy', 'Brown', 'randy@yahoo.com','$2a$08$UkVvwpULis18S19S5pZFn.YHPZt3oaqHZnDwqbCW9pft6uFtkXKDC','ROLE_USER');
+INSERT INTO users (username, first_name, last_name, email, password_hash,role) VALUES ('mark', 'Mark', 'Baron', 'mark@test.com','$2a$08$UkVvwpULis18S19S5pZFn.YHPZt3oaqHZnDwqbCW9pft6uFtkXKDC','ROLE_USER');
+INSERT INTO users (username, first_name, last_name, email, password_hash,role) VALUES ('mike', 'Mike', 'Levy', 'mike@google.com','$2a$08$UkVvwpULis18S19S5pZFn.YHPZt3oaqHZnDwqbCW9pft6uFtkXKDC','ROLE_USER');
 
 INSERT INTO inputs (input_id, input_name)
 VALUES (1, 'New');
@@ -23,6 +28,9 @@ INSERT INTO car (vin, make, model, year, mileage, engine, input_id, price, photo
 VALUES ('li1jb4i2tyb3rf', 'Chevy', 'Truck', 2005, 11, 'V8', 2, 6900, 'https://i.cbc.ca/1.5315974.1570713153!/fileImage/httpImage/image.jpg_gen/derivatives/16x9_780/ransford-lockhart-truck-explosion.jpg', '','','', true);
 
 INSERT INTO car (vin, make, model, year, mileage, engine, input_id, price, photo, photo_2, photo_3, photo_4, is_for_sale)
+VALUES ('abcjb4i2tyb123', 'Ferrari', 'F430', 2003, 6000, 'V10', 2, 95000, 'https://www.ryanfriedmanmotorcars.com/imagetag/1290/23/l/Used-2003-Ferrari-360-Spider-1650764253.jpg', 'https://www.ryanfriedmanmotorcars.com/imagetag/1290/18/l/Used-2003-Ferrari-360-Spider-1650764253.jpg','https://www.ryanfriedmanmotorcars.com/imagetag/936/15/l/Used-2003-Ferrari-360-Spider-1615216607.jpg','https://www.ryanfriedmanmotorcars.com/imagetag/936/8/f/Used-2003-Ferrari-360-Spider-1615216607.jpg', true);
+
+INSERT INTO car (vin, make, model, year, mileage, engine, input_id, price, photo, photo_2, photo_3, photo_4, is_for_sale)
 VALUES ('li1jb4i2tyb444', 'Ferrari', 'F430', 2012, 5000, 'V12', 2, 120000, 'https://get.wallhere.com/photo/car-vehicle-sports-car-Ferrari-Ferrari-F430-performance-car-2012-netcarshow-netcar-car-images-car-photo-F430-by-Status-Design-supercar-land-vehicle-automotive-design-automobile-make-luxury-vehicle-ferrari-spa-ferrari-f430-challenge-ferrari-360-391666.jpg', '','','', true);
 
 INSERT INTO car (vin, make, model, year, mileage, engine, input_id, price, photo, photo_2, photo_3, photo_4, is_for_sale)
@@ -30,6 +38,9 @@ VALUES ('li1jb4i2tyb555', 'Kia', 'Carnival', 2022, 500, 'V6', 2, 44000, 'https:/
 
 INSERT INTO car (vin, make, model, year, mileage, engine, input_id, price, photo, photo_2, photo_3, photo_4, is_for_sale)
 VALUES ('li1jb4i2tyb666', 'GMC', '', 1983, 120000, 'V8', 2, 26000, 'https://12pointsignworks.com/wp-content/uploads/2018/10/A-Team-Van-Mr-T.jpg','','','', true);
+
+INSERT INTO car (vin, make, model, year, mileage, engine, input_id, price, photo, photo_2, photo_3, photo_4, is_for_sale)
+VALUES ('abcjb4i2tyb777', 'Chevy', 'Corvette', 2022, 815, 'V10', 2, 66000, 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSoyHqnJlq_KUFKUIUMxz3k9YHLY9XHAR-cfkg74lG0iSUQ3JgMJvMIPa607xYETwBdNBw&usqp=CAU','https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS_lzMCzYN_clxBhkUubAwA5BjYT9tLCkFF1WCOBNVXSbdv0xiSOAj3mxu6gdOA4J3Jm9Q&usqp=CAU','https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQmZZV80b89qFiI0IixDxtoJM1QjcS_ysVAmOzOkXxh4UAdByydStzosU3ECn7-JWE5VkQ&usqp=CAU','https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQGcLelRQ_PS3Ofx6bjHLLfc8v4IJPJeVN0xx2IfvgPKrwlHzlKzeWFnXpfn7HnywqvmMI&usqp=CAU', true);
 
 Insert into garage (vin, user_id)
 VALUES ('1lk32451k4b', 3);
